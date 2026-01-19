@@ -4,7 +4,7 @@ import { Zap, Monitor, Boxes, Globe } from "lucide-react";
 import Link from 'next/link';
 import { SpotlightCard } from "@/components/spotlight-card";
 import { AnimatedCounter } from "@/components/animated-counter";
-import { Reveal } from "@/components/reveal";
+import { Reveal, AnimatedLine } from "@/components/reveal";
 import { HeroContent } from "@/components/hero-content";
 import { PricingCard } from "@/components/pricing-card";
 
@@ -168,7 +168,7 @@ export default function Home() {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
                         {/* Connecting Line (Desktop) */}
-                        <Reveal delay={0.5} className="hidden md:block absolute top-6 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent origin-left" />
+                        <AnimatedLine delay={0.5} className="hidden md:block absolute top-6 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent" />
 
                         <StepCard
                             number="1"

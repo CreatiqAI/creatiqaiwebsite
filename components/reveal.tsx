@@ -15,3 +15,13 @@ export const Reveal = ({ children, delay = 0, className = "" }: { children: Reac
         </motion.div>
     );
 };
+
+export const AnimatedLine = ({ className = "", delay = 0 }: { className?: string, delay?: number }) => (
+    <motion.div
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        transition={{ duration: 1.5, delay, ease: "easeInOut" }}
+        viewport={{ once: true }}
+        className={`origin-left ${className}`}
+    />
+);
