@@ -1,25 +1,15 @@
 "use client";
 
-import React, { useMemo, useRef, useState, useEffect } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
 function ParticleStream({ count = 800, speed = 0.1 }) {
     const meshRef = useRef<THREE.InstancedMesh>(null);
     const [hovered, setHovered] = useState(false);
-    const scrollRef = useRef(0);
 
     // Target speed multiplier
     const speedMultiplier = useRef(1);
-
-    // Track scroll position
-    useEffect(() => {
-        const handleScroll = () => {
-            scrollRef.current = window.scrollY;
-        };
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
 
     // Generate initial particles in a long tunnel
     const particles = useMemo(() => {
@@ -46,14 +36,8 @@ function ParticleStream({ count = 800, speed = 0.1 }) {
     useFrame((state, delta) => {
         if (!meshRef.current) return;
 
-        // Calculate scroll impact - fast zoom when scrolling down
-        // Normalize scroll: after 100px scroll, we add significant speed
-        const scrollFactor = scrollRef.current / 100;
-
-        // Smooth acceleration on hover AND scroll
-        // Hover adds 2.0 speed, Scroll adds dynamic speed
-        const targetSpeed = (hovered ? 3.0 : 1.0) + (scrollFactor * 2.0);
-
+        // Smooth acceleration on hover
+        const targetSpeed = hovered ? 1.5 : 1.0;
         speedMultiplier.current = THREE.MathUtils.lerp(speedMultiplier.current, targetSpeed, 0.1);
 
         const time = state.clock.getElapsedTime();
@@ -67,24 +51,19 @@ function ParticleStream({ count = 800, speed = 0.1 }) {
                 particle.pos.z = -80;
             }
 
-            // Static Spiral motion (no time-based rotation)
-            // "dont spin when the cursor move/zoom" -> we remove the 'time' factor from angle
+            // Spiral motion
             const zNorm = (particle.pos.z + 80) / 100; // 0 to 1
-            const angle = i; // Static angle based on index, no spinning
+            const rotateSpeed = 0.1 * speedMultiplier.current;
+            const angle = time * rotateSpeed + i;
 
-            // Gentle curve based on time to make it feel alive, but NOT spinning
-            // just a slight drift
-            const xOffset = Math.sin(time * 0.2 + zNorm * 2) * 2;
-            const yOffset = Math.cos(time * 0.1 + zNorm * 2) * 2;
+            const radius = 8 + Math.sin(time * 0.5 + zNorm * Math.PI) * 2;
 
-            const radius = 8 + zNorm * 5; // Wider as it gets closer
-
-            dummy.position.x = Math.cos(angle) * radius + xOffset;
-            dummy.position.y = Math.sin(angle) * radius + yOffset;
+            dummy.position.x = Math.cos(angle) * radius;
+            dummy.position.y = Math.sin(angle) * radius;
             dummy.position.z = particle.pos.z;
 
-            // Stretch effect based on speed (Star Wars warp speed look)
-            const scaleZ = 1 + (speedMultiplier.current - 1) * 3;
+            // Stretch effect based on speed
+            const scaleZ = 1 + (speedMultiplier.current - 1) * 2;
             dummy.scale.set(particle.size, particle.size, particle.size * scaleZ);
 
             dummy.rotation.z = angle;
