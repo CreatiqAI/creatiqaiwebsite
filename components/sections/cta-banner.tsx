@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import StarBorder from "@/components/StarBorder";
+import "@/components/StarBorder.css";
 
 export function CTABanner() {
     return (
@@ -31,15 +33,15 @@ export function CTABanner() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <a
-                            href="https://2ndu.ai"
-                            className="group px-8 py-4 rounded-full glass-btn-primary text-white font-bold text-lg hover:scale-105"
-                        >
-                            <span className="flex items-center gap-2">
-                                Start with 2ndu.ai
+                        <StarBorder as="div" color="#3b82f6" speed="4s" className="rounded-full">
+                            <a
+                                href="https://2ndu.ai"
+                                className="group flex items-center gap-2 px-8 py-4 text-white font-bold text-lg hover:scale-105 transition-transform"
+                            >
+                                Start Automating
                                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                            </span>
-                        </a>
+                            </a>
+                        </StarBorder>
                         <a
                             href="#contact"
                             className="px-8 py-4 rounded-full glass-btn text-white font-medium text-lg"

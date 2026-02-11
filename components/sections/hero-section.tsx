@@ -5,6 +5,8 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { TextScramble } from "@/components/text-scramble";
 import { getGeoContent } from "@/lib/geo-content";
 import dynamic from "next/dynamic";
+import StarBorder from "@/components/StarBorder";
+import "@/components/StarBorder.css";
 
 const FloatingLines = dynamic(() => import("@/components/FloatingLines"), {
     ssr: false,
@@ -67,14 +69,10 @@ export function HeroSection({ country }: { country: string }) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1.0, duration: 1.0 }}
-                    className="text-lg md:text-xl text-white/45 leading-relaxed mb-12 max-w-xl mx-auto"
+                    className="text-lg md:text-xl text-white/45 leading-relaxed mb-12 max-w-2xl mx-auto"
                 >
-                    Websites, AI systems, and WhatsApp automation
-                    — powered by{" "}
-                    <a href="https://2ndu.ai" className="text-blue-400 hover:text-blue-300 transition-colors font-medium">
-                        2ndu.ai
-                    </a>.{" "}
-                    Everything your business needs to go digital.
+                    Custom websites, AI automation systems, and WhatsApp chatbots
+                    — everything your business needs to go digital.
                 </motion.p>
 
                 {/* CTA Buttons */}
@@ -84,21 +82,23 @@ export function HeroSection({ country }: { country: string }) {
                     transition={{ delay: 1.4 }}
                     className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
                 >
-                    <a
-                        href="https://2ndu.ai"
-                        className="group relative px-8 py-4 rounded-full glass-btn-primary text-white font-bold text-lg hover:scale-[1.03] transition-transform"
-                    >
-                        <span className="relative z-10 flex items-center gap-2">
+                    <StarBorder as="div" color="#3b82f6" speed="4s" className="rounded-full">
+                        <a
+                            href="https://2ndu.ai"
+                            className="group flex items-center gap-2 px-8 py-4 text-white font-bold text-lg hover:scale-[1.03] transition-transform"
+                        >
                             {geo.ctaText}
                             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                        </span>
-                    </a>
-                    <a
-                        href="#services"
-                        className="px-8 py-4 rounded-full glass-btn text-white/90 font-medium text-lg hover:scale-[1.03] transition-transform"
-                    >
-                        Explore Services
-                    </a>
+                        </a>
+                    </StarBorder>
+                    <StarBorder as="div" color="#7c3aed" speed="6s" className="rounded-full">
+                        <a
+                            href="#services"
+                            className="flex items-center px-8 py-4 text-white/90 font-medium text-lg hover:scale-[1.03] transition-transform"
+                        >
+                            Explore Services
+                        </a>
+                    </StarBorder>
                 </motion.div>
 
                 {/* Trust Signals */}

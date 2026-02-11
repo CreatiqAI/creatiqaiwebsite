@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/logo";
@@ -10,8 +10,10 @@ import { seoConfig } from "@/lib/seo-config";
 import { GoogleAnalytics } from "@/components/google-analytics";
 import { TrackPageView } from "@/components/track-view";
 import { ConditionalNav } from "@/components/conditional-nav";
+import StarBorder from "@/components/StarBorder";
+import "@/components/StarBorder.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"] });
 
 export const metadata: Metadata = {
     metadataBase: new URL(seoConfig.siteUrl),
@@ -67,7 +69,7 @@ export default function RootLayout({
                     }}
                 />
             </head>
-            <body className={cn(inter.className, "antialiased selection:bg-blue-500/20 selection:text-blue-200")}>
+            <body className={cn(spaceGrotesk.className, "antialiased selection:bg-blue-500/20 selection:text-blue-200 noise-bg")}>
                 <GoogleAnalytics />
                 <TrackPageView />
 
@@ -94,6 +96,9 @@ export default function RootLayout({
                                 <a href="/#services" className="px-4 py-2 rounded-lg text-sm text-white/50 hover:text-white hover:bg-white/5 transition-all">
                                     Services
                                 </a>
+                                <a href="/#industries" className="px-4 py-2 rounded-lg text-sm text-white/50 hover:text-white hover:bg-white/5 transition-all">
+                                    Industries
+                                </a>
                                 <a href="/#how-it-works" className="px-4 py-2 rounded-lg text-sm text-white/50 hover:text-white hover:bg-white/5 transition-all">
                                     How It Works
                                 </a>
@@ -103,16 +108,15 @@ export default function RootLayout({
                                 <Link href="/blog" className="px-4 py-2 rounded-lg text-sm text-white/50 hover:text-white hover:bg-white/5 transition-all">
                                     Blog
                                 </Link>
-                                <a href="/#faq" className="px-4 py-2 rounded-lg text-sm text-white/50 hover:text-white hover:bg-white/5 transition-all">
-                                    FAQ
-                                </a>
                                 <div className="w-px h-5 bg-white/10 mx-2" />
-                                <a
-                                    href="https://2ndu.ai"
-                                    className="px-5 py-2 rounded-lg glass-btn-primary text-sm font-medium text-white"
-                                >
-                                    Launch 2ndu.ai
-                                </a>
+                                <StarBorder as="div" color="#3b82f6" speed="5s" className="rounded-full">
+                                    <a
+                                        href="https://2ndu.ai"
+                                        className="block px-5 py-2 text-sm font-medium text-white"
+                                    >
+                                        Launch 2ndu.ai
+                                    </a>
+                                </StarBorder>
                             </div>
 
                             <MobileNav />
