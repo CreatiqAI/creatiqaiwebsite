@@ -26,6 +26,10 @@ export const metadata: Metadata = {
     twitter: {
         ...seoConfig.twitter,
     },
+    icons: {
+        icon: "/logo.png",
+        apple: "/logo.png",
+    },
     robots: {
         index: true,
         follow: true,
