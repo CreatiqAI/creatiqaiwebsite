@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
-import { TextScramble } from "@/components/text-scramble";
 import { getGeoContent } from "@/lib/geo-content";
 
 export function HeroSection({ country }: { country: string }) {
@@ -39,9 +38,7 @@ export function HeroSection({ country }: { country: string }) {
                         One Stop
                     </span>
                     <br />
-                    <span className="text-white">
-                        <TextScramble text="AI Solution" className="text-white" />
-                    </span>
+                    <span className="text-white">AI Solution</span>
                     <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-400">.</span>
                 </motion.h1>
 
