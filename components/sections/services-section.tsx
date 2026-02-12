@@ -32,7 +32,7 @@ const services = [
 
 export function ServicesSection() {
     return (
-        <section id="services" className="relative z-10 py-20 px-6 min-h-screen flex items-center">
+        <section id="services" className="relative z-10 py-12 px-6 h-full flex items-center">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}

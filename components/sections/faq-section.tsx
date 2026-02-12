@@ -67,7 +67,7 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
 
 export function FAQSection() {
     return (
-        <section id="faq" className="relative z-10 py-24 px-6 flex items-center min-h-screen">
+        <section id="faq" className="relative z-10 py-12 px-6 flex items-center h-full">
             <div className="max-w-3xl mx-auto w-full">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}

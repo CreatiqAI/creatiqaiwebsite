@@ -11,7 +11,7 @@ export default function Home() {
     const country = headersList.get("x-user-country") || "US";
 
     return (
-        <main className="min-h-screen relative flex flex-col bg-[#050510]">
+        <main className="snap-container relative bg-[#050510]">
             <div className="snap-section">
                 <HeroSection country={country} />
             </div>

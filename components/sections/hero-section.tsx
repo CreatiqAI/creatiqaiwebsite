@@ -13,7 +13,7 @@ export function HeroSection({ country }: { country: string }) {
     const geo = getGeoContent(country);
 
     return (
-        <section className="relative h-screen min-h-[800px] flex items-center justify-center overflow-hidden bg-[#050510]">
+        <section className="relative h-full flex items-center justify-center overflow-hidden bg-[#050510]">
             {/* FloatingLines Background */}
             <div className="absolute inset-0 z-0">
                 <FloatingLines
