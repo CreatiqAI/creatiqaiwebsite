@@ -27,10 +27,7 @@ export function CTAFooter() {
         <section id="contact" className="relative z-10 bg-[#030308] h-full flex flex-col overflow-hidden">
             {/* CTA Area */}
             <div className="relative flex-1 flex items-center justify-center px-6">
-                <div className="absolute inset-0 -z-10">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/8 rounded-full blur-[120px]" />
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-violet-500/6 rounded-full blur-[100px]" />
-                </div>
+                <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(37,99,235,0.06) 0%, transparent 60%), radial-gradient(ellipse 35% 35% at 50% 50%, rgba(124,58,237,0.04) 0%, transparent 60%)" }} />
 
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}

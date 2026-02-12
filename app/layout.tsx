@@ -66,7 +66,7 @@ export default function RootLayout({
                     }}
                 />
             </head>
-            <body className={cn(spaceGrotesk.className, "antialiased selection:bg-blue-500/20 selection:text-blue-200 noise-bg")}>
+            <body className={cn(spaceGrotesk.className, "antialiased selection:bg-blue-500/20 selection:text-blue-200")}>
                 <GoogleAnalytics />
                 <TrackPageView />
 
