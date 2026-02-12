@@ -32,7 +32,7 @@ const steps = [
 
 export function HowItWorksSection() {
     return (
-        <section id="how-it-works" className="relative z-10 py-32 px-6">
+        <section id="how-it-works" className="relative z-10 py-20 px-6 min-h-screen flex items-center">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}

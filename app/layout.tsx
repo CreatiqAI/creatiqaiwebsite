@@ -10,9 +10,6 @@ import { seoConfig } from "@/lib/seo-config";
 import { GoogleAnalytics } from "@/components/google-analytics";
 import { TrackPageView } from "@/components/track-view";
 import { ConditionalNav } from "@/components/conditional-nav";
-import StarBorder from "@/components/StarBorder";
-import "@/components/StarBorder.css";
-
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"] });
 
 export const metadata: Metadata = {
@@ -96,9 +93,6 @@ export default function RootLayout({
                                 <a href="/#services" className="px-4 py-2 rounded-lg text-sm text-white/50 hover:text-white hover:bg-white/5 transition-all">
                                     Services
                                 </a>
-                                <a href="/#industries" className="px-4 py-2 rounded-lg text-sm text-white/50 hover:text-white hover:bg-white/5 transition-all">
-                                    Industries
-                                </a>
                                 <a href="/#how-it-works" className="px-4 py-2 rounded-lg text-sm text-white/50 hover:text-white hover:bg-white/5 transition-all">
                                     How It Works
                                 </a>
@@ -109,14 +103,14 @@ export default function RootLayout({
                                     Blog
                                 </Link>
                                 <div className="w-px h-5 bg-white/10 mx-2" />
-                                <StarBorder as="div" color="#3b82f6" speed="5s" className="rounded-full">
+                                <div className="glow-border-btn glow-border-btn-primary" style={{ "--glow-color": "#3b82f6" } as React.CSSProperties}>
                                     <a
                                         href="https://2ndu.ai"
-                                        className="block px-5 py-2 text-sm font-medium text-white"
+                                        className="glow-border-btn-inner block px-5 py-2 text-sm font-medium text-white"
                                     >
                                         Launch 2ndu.ai
                                     </a>
-                                </StarBorder>
+                                </div>
                             </div>
 
                             <MobileNav />

@@ -11,27 +11,15 @@ const faqs = [
     },
     {
         question: "What is 2ndu.ai and how does it work?",
-        answer: "2ndu.ai is our chatbot platform that lets you connect your WhatsApp Business account to an AI chatbot in minutes. Simply sign up, connect your WhatsApp number, train the AI with your business data (PDFs, website links, scripts), and launch. The AI handles customer conversations 24/7 — qualifying leads, answering FAQs, and more.",
+        answer: "2ndu.ai is our chatbot platform that lets you connect your WhatsApp Business account to an AI chatbot in minutes. Simply sign up, connect your WhatsApp number, train the AI with your business data, and launch. The AI handles customer conversations 24/7.",
     },
     {
         question: "Do I need coding skills to use your services?",
-        answer: "Not at all. 2ndu.ai is completely no-code — if you can send an email, you can set up a chatbot. For custom websites and AI system integrations, our team handles all the technical work. You just tell us what you need.",
-    },
-    {
-        question: "Is the WhatsApp Business API official?",
-        answer: "Yes, we partner with Meta Business Solution Providers (BSPs) to offer seamless access to the official WhatsApp Business API. This ensures your business communications are compliant, secure, and reliable.",
-    },
-    {
-        question: "Can the chatbot speak multiple languages?",
-        answer: "Absolutely. Our AI chatbots are multilingual and can fluently converse in over 95 languages, including English, Bahasa Melayu, Chinese (Mandarin), Tamil, Hindi, Arabic, and many more.",
+        answer: "Not at all. 2ndu.ai is completely no-code — if you can send an email, you can set up a chatbot. For custom websites and AI integrations, our team handles all the technical work.",
     },
     {
         question: "How long does it take to set up?",
-        answer: "For 2ndu.ai, you can be up and running in under 10 minutes. Custom website projects typically take 2-4 weeks depending on complexity. AI system integrations vary based on scope but usually 1-3 weeks for standard implementations.",
-    },
-    {
-        question: "Do you offer support after deployment?",
-        answer: "Yes. All our services include ongoing support and maintenance. We monitor your AI systems, provide updates, and continuously optimize performance based on real usage data.",
+        answer: "For 2ndu.ai, you can be up and running in under 10 minutes. Custom website projects typically take 2-4 weeks depending on complexity. AI system integrations vary but usually 1-3 weeks for standard implementations.",
     },
 ];
 
@@ -47,16 +35,16 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
         >
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full p-6 rounded-2xl bg-white/5 hover:bg-white/[0.08] border border-white/10 transition-colors text-left"
+                className="w-full p-5 rounded-2xl bg-white/5 hover:bg-white/[0.08] border border-white/10 transition-colors text-left"
             >
                 <div className="flex justify-between items-center gap-4">
-                    <span className="font-semibold text-lg text-white/95">{question}</span>
+                    <span className="font-semibold text-white/95">{question}</span>
                     <motion.div
                         animate={{ rotate: isOpen ? 180 : 0 }}
                         transition={{ duration: 0.3 }}
                         className="flex-shrink-0"
                     >
-                        <ChevronDown size={20} className="text-blue-400" />
+                        <ChevronDown size={18} className="text-blue-400" />
                     </motion.div>
                 </div>
                 <AnimatePresence>
@@ -68,7 +56,7 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
                             transition={{ duration: 0.3 }}
                             className="overflow-hidden"
                         >
-                            <p className="mt-4 text-white/60 leading-relaxed">{answer}</p>
+                            <p className="mt-3 text-white/50 leading-relaxed text-sm">{answer}</p>
                         </motion.div>
                     )}
                 </AnimatePresence>
@@ -79,27 +67,27 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
 
 export function FAQSection() {
     return (
-        <section id="faq" className="relative z-10 py-32 px-6">
-            <div className="max-w-3xl mx-auto">
+        <section id="faq" className="relative z-10 py-24 px-6 flex items-center min-h-screen">
+            <div className="max-w-3xl mx-auto w-full">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.8 }}
-                    className="mb-16 text-center"
+                    className="mb-12 text-center"
                 >
-                    <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
+                    <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
                         Frequently Asked{" "}
                         <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600">
                             Questions
                         </span>
                     </h2>
-                    <p className="text-white/60 text-lg">
-                        Everything you need to know about our services and platform.
+                    <p className="text-white/50 text-lg">
+                        Everything you need to know about our services.
                     </p>
                 </motion.div>
 
-                <div className="space-y-4">
+                <div className="space-y-3">
                     {faqs.map((faq, i) => (
                         <FAQItem key={faq.question} question={faq.question} answer={faq.answer} index={i} />
                     ))}

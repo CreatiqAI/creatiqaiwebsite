@@ -5,9 +5,6 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import { TextScramble } from "@/components/text-scramble";
 import { getGeoContent } from "@/lib/geo-content";
 import dynamic from "next/dynamic";
-import StarBorder from "@/components/StarBorder";
-import "@/components/StarBorder.css";
-
 const FloatingLines = dynamic(() => import("@/components/FloatingLines"), {
     ssr: false,
 });
@@ -71,7 +68,8 @@ export function HeroSection({ country }: { country: string }) {
                     transition={{ delay: 1.0, duration: 1.0 }}
                     className="text-lg md:text-xl text-white/45 leading-relaxed mb-12 max-w-2xl mx-auto"
                 >
-                    Custom websites, AI automation systems, and WhatsApp chatbots
+                    <span className="text-white/70">Custom websites, AI automation systems, and WhatsApp chatbots</span>
+                    <br />
                     — everything your business needs to go digital.
                 </motion.p>
 
@@ -82,23 +80,23 @@ export function HeroSection({ country }: { country: string }) {
                     transition={{ delay: 1.4 }}
                     className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
                 >
-                    <StarBorder as="div" color="#3b82f6" speed="4s" className="rounded-full">
+                    <div className="glow-border-btn glow-border-btn-primary" style={{ "--glow-color": "#3b82f6" } as React.CSSProperties}>
                         <a
                             href="https://2ndu.ai"
-                            className="group flex items-center gap-2 px-8 py-4 text-white font-bold text-lg hover:scale-[1.03] transition-transform"
+                            className="glow-border-btn-inner group flex items-center gap-2 px-8 py-4 text-white font-bold text-lg hover:scale-[1.02] transition-transform"
                         >
                             {geo.ctaText}
                             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                         </a>
-                    </StarBorder>
-                    <StarBorder as="div" color="#7c3aed" speed="6s" className="rounded-full">
+                    </div>
+                    <div className="glow-border-btn" style={{ "--glow-color": "#7c3aed" } as React.CSSProperties}>
                         <a
                             href="#services"
-                            className="flex items-center px-8 py-4 text-white/90 font-medium text-lg hover:scale-[1.03] transition-transform"
+                            className="glow-border-btn-inner flex items-center px-8 py-4 text-white/90 font-medium text-lg hover:scale-[1.02] transition-transform"
                         >
                             Explore Services
                         </a>
-                    </StarBorder>
+                    </div>
                 </motion.div>
 
                 {/* Trust Signals */}
@@ -110,8 +108,8 @@ export function HeroSection({ country }: { country: string }) {
                 >
                     {["OFFICIAL WHATSAPP API", "META BUSINESS PARTNER", "AI-POWERED SOLUTIONS"].map((label, i) => (
                         <span key={label} className="flex items-center gap-3">
-                            {i > 0 && <span className="w-1 h-1 rounded-full bg-white/15 hidden md:block" />}
-                            <span className="text-white/20 text-[11px] md:text-xs font-semibold tracking-[0.2em]">
+                            {i > 0 && <span className="w-1 h-1 rounded-full bg-white/30 hidden md:block" />}
+                            <span className="text-white/50 text-[11px] md:text-xs font-semibold tracking-[0.2em]">
                                 {label}
                             </span>
                         </span>

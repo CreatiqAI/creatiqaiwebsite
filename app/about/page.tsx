@@ -49,8 +49,8 @@ const values = [
 ];
 
 const stats = [
-    { value: "500+", label: "Projects Delivered" },
-    { value: "50+", label: "Enterprise Clients" },
+    { value: "3", label: "Core Services" },
+    { value: "10+", label: "Clients Served" },
     { value: "95+", label: "Languages Supported" },
     { value: "24/7", label: "AI Availability" },
 ];
@@ -255,12 +255,14 @@ export default function AboutPage() {
                             Let&apos;s discuss how we can help transform your business with AI.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            <a
-                                href="https://2ndu.ai"
-                                className="px-8 py-4 rounded-full glass-btn-primary text-white font-bold text-lg"
-                            >
-                                Get Started
-                            </a>
+                            <div className="glow-border-btn glow-border-btn-primary" style={{ "--glow-color": "#3b82f6" } as React.CSSProperties}>
+                                <a
+                                    href="https://2ndu.ai"
+                                    className="glow-border-btn-inner flex items-center px-8 py-4 text-white font-bold text-lg"
+                                >
+                                    Get Started
+                                </a>
+                            </div>
                             <a
                                 href="/#services"
                                 className="px-8 py-4 rounded-full glass-btn text-white/90 font-medium text-lg"
