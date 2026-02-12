@@ -12,8 +12,9 @@ export default function Home() {
     const country = headersList.get("x-user-country") || "US";
 
     return (
+        <>
+        <LiquidEtherBackground />
         <main className="snap-container relative">
-            <LiquidEtherBackground />
             <div className="snap-section">
                 <HeroSection country={country} />
             </div>
@@ -33,5 +34,6 @@ export default function Home() {
                 <CTAFooter />
             </div>
         </main>
+        </>
     );
 }
