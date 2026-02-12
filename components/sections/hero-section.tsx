@@ -10,13 +10,56 @@ export function HeroSection({ country }: { country: string }) {
 
     return (
         <section className="relative h-full flex items-center justify-center overflow-hidden bg-[#050510]">
-            {/* Background: Gradient mesh + floating orbs (CSS only, no WebGL) */}
-            <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(ellipse 60% 50% at 30% 40%, rgba(37,99,235,0.12) 0%, transparent 70%), radial-gradient(ellipse 50% 50% at 70% 60%, rgba(124,58,237,0.1) 0%, transparent 70%)" }}>
-                <div className="bg-orb bg-orb-blue w-[600px] h-[600px] -top-32 -left-48" />
-                <div className="bg-orb bg-orb-violet w-[500px] h-[500px] -bottom-32 -right-40" />
-                <div className="bg-orb bg-orb-pulse w-[400px] h-[400px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+            {/* Background: CSS aurora effect — animated gradient blobs + dot grid */}
+            <div className="hero-aurora -z-10">
+                {/* Base gradient mesh */}
+                <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(37,99,235,0.08) 0%, transparent 70%)" }} />
+
+                {/* Aurora blob 1 — large blue, top-left */}
+                <div
+                    className="hero-aurora-blob w-[800px] h-[800px] -top-[200px] -left-[200px]"
+                    style={{
+                        background: "radial-gradient(circle, rgba(37,99,235,0.2) 0%, rgba(37,99,235,0.08) 30%, transparent 65%)",
+                        animation: "aurora-drift-1 25s ease-in-out infinite",
+                    }}
+                />
+
+                {/* Aurora blob 2 — violet, bottom-right */}
+                <div
+                    className="hero-aurora-blob w-[700px] h-[700px] -bottom-[150px] -right-[150px]"
+                    style={{
+                        background: "radial-gradient(circle, rgba(124,58,237,0.18) 0%, rgba(124,58,237,0.06) 30%, transparent 65%)",
+                        animation: "aurora-drift-2 30s ease-in-out infinite",
+                    }}
+                />
+
+                {/* Aurora blob 3 — blue/violet center glow */}
+                <div
+                    className="hero-aurora-blob w-[600px] h-[600px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                    style={{
+                        background: "radial-gradient(circle, rgba(59,130,246,0.12) 0%, rgba(124,58,237,0.06) 40%, transparent 65%)",
+                        animation: "aurora-drift-3 20s ease-in-out infinite",
+                    }}
+                />
+
+                {/* Aurora blob 4 — subtle top-right accent */}
+                <div
+                    className="hero-aurora-blob w-[500px] h-[500px] -top-[100px] right-[10%]"
+                    style={{
+                        background: "radial-gradient(circle, rgba(99,102,241,0.14) 0%, transparent 60%)",
+                        animation: "aurora-drift-2 35s ease-in-out infinite reverse",
+                    }}
+                />
+
+                {/* Dot grid overlay */}
+                <div className="hero-dot-grid" />
+
+                {/* Shimmer lines */}
                 <div className="shimmer-line top-1/3 left-0" />
                 <div className="shimmer-line bottom-1/4 left-0" style={{ animationDelay: "4s" }} />
+
+                {/* Edge glow lines */}
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
             </div>
 
             <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
