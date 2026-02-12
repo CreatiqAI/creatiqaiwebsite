@@ -2,8 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Monitor, Cpu, MessageSquare, ArrowRight } from "lucide-react";
-import ElectricBorder from "@/components/ElectricBorder";
-import "@/components/ElectricBorder.css";
 
 const services = [
     {
@@ -71,54 +69,49 @@ export function ServicesSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.4, delay: i * 0.1 }}
+                            className="css-glow-border"
+                            style={{ "--card-glow": service.highlight ? "#7c3aed" : "#2563eb" } as React.CSSProperties}
                         >
-                            <ElectricBorder
-                                color={service.highlight ? "#7c3aed" : "#2563eb"}
-                                speed={1}
-                                chaos={0.08}
-                                borderRadius={16}
-                            >
-                                <div className="p-8 flex flex-col h-full bg-white/5 rounded-2xl border border-white/10">
-                                    <div
-                                        className={`inline-flex p-3 rounded-xl mb-6 w-fit ${
-                                            service.highlight
-                                                ? "bg-violet-500/10 text-violet-400"
-                                                : "bg-blue-500/10 text-blue-400"
-                                        }`}
-                                    >
-                                        <service.icon size={28} />
-                                    </div>
-
-                                    <h3 className="text-xl md:text-2xl font-bold mb-4 text-white/95">
-                                        {service.title}
-                                    </h3>
-
-                                    <p className="text-white/60 leading-relaxed mb-6 flex-1">
-                                        {service.description}
-                                    </p>
-
-                                    <ul className="space-y-2 mb-8">
-                                        {service.features.map((feature) => (
-                                            <li key={feature} className="flex items-center gap-2 text-sm text-white/40">
-                                                <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                                                {feature}
-                                            </li>
-                                        ))}
-                                    </ul>
-
-                                    <a
-                                        href={service.highlight ? "https://2ndu.ai" : "#contact"}
-                                        className={`inline-flex items-center gap-2 text-sm font-medium transition-colors ${
-                                            service.highlight
-                                                ? "text-violet-400 hover:text-violet-300"
-                                                : "text-blue-400 hover:text-blue-300"
-                                        }`}
-                                    >
-                                        {service.highlight ? "Try 2ndu.ai" : "Learn More"}
-                                        <ArrowRight size={14} />
-                                    </a>
+                            <div className="p-8 flex flex-col h-full bg-white/5 rounded-2xl border border-white/10">
+                                <div
+                                    className={`inline-flex p-3 rounded-xl mb-6 w-fit ${
+                                        service.highlight
+                                            ? "bg-violet-500/10 text-violet-400"
+                                            : "bg-blue-500/10 text-blue-400"
+                                    }`}
+                                >
+                                    <service.icon size={28} />
                                 </div>
-                            </ElectricBorder>
+
+                                <h3 className="text-xl md:text-2xl font-bold mb-4 text-white/95">
+                                    {service.title}
+                                </h3>
+
+                                <p className="text-white/60 leading-relaxed mb-6 flex-1">
+                                    {service.description}
+                                </p>
+
+                                <ul className="space-y-2 mb-8">
+                                    {service.features.map((feature) => (
+                                        <li key={feature} className="flex items-center gap-2 text-sm text-white/40">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                                            {feature}
+                                        </li>
+                                    ))}
+                                </ul>
+
+                                <a
+                                    href={service.highlight ? "https://2ndu.ai" : "#contact"}
+                                    className={`inline-flex items-center gap-2 text-sm font-medium transition-colors ${
+                                        service.highlight
+                                            ? "text-violet-400 hover:text-violet-300"
+                                            : "text-blue-400 hover:text-blue-300"
+                                    }`}
+                                >
+                                    {service.highlight ? "Try 2ndu.ai" : "Learn More"}
+                                    <ArrowRight size={14} />
+                                </a>
+                            </div>
                         </motion.div>
                     ))}
                 </div>

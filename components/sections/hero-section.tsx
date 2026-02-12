@@ -4,31 +4,19 @@ import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { TextScramble } from "@/components/text-scramble";
 import { getGeoContent } from "@/lib/geo-content";
-import dynamic from "next/dynamic";
-const FloatingLines = dynamic(() => import("@/components/FloatingLines"), {
-    ssr: false,
-});
 
 export function HeroSection({ country }: { country: string }) {
     const geo = getGeoContent(country);
 
     return (
         <section className="relative h-full flex items-center justify-center overflow-hidden bg-[#050510]">
-            {/* FloatingLines Background */}
-            <div className="absolute inset-0 z-0">
-                <FloatingLines
-                    linesGradient={["#2563eb", "#7c3aed", "#3b82f6", "#8b5cf6"]}
-                    enabledWaves={["top", "middle", "bottom"]}
-                    lineCount={[4, 6, 4]}
-                    lineDistance={[6, 5, 7]}
-                    animationSpeed={0.8}
-                    interactive={true}
-                    bendRadius={6}
-                    bendStrength={-0.4}
-                    mouseDamping={0.06}
-                    parallax={true}
-                    parallaxStrength={0.15}
-                />
+            {/* Background: Gradient mesh + floating orbs (CSS only, no WebGL) */}
+            <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(ellipse 60% 50% at 30% 40%, rgba(37,99,235,0.12) 0%, transparent 70%), radial-gradient(ellipse 50% 50% at 70% 60%, rgba(124,58,237,0.1) 0%, transparent 70%)" }}>
+                <div className="bg-orb bg-orb-blue w-[600px] h-[600px] -top-32 -left-48" />
+                <div className="bg-orb bg-orb-violet w-[500px] h-[500px] -bottom-32 -right-40" />
+                <div className="bg-orb bg-orb-pulse w-[400px] h-[400px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                <div className="shimmer-line top-1/3 left-0" />
+                <div className="shimmer-line bottom-1/4 left-0" style={{ animationDelay: "4s" }} />
             </div>
 
             <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">

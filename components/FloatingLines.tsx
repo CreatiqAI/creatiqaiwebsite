@@ -275,6 +275,7 @@ export default function FloatingLines({
   const currentInfluenceRef = useRef<number>(0);
   const targetParallaxRef = useRef<Vector2>(new Vector2(0, 0));
   const currentParallaxRef = useRef<Vector2>(new Vector2(0, 0));
+  const visibleRef = useRef<boolean>(true);
 
   const getLineCount = (waveType: 'top' | 'middle' | 'bottom'): number => {
     if (typeof lineCount === 'number') return lineCount;
@@ -306,8 +307,8 @@ export default function FloatingLines({
     const camera = new OrthographicCamera(-1, 1, 1, -1, 0, 1);
     camera.position.z = 1;
 
-    const renderer = new WebGLRenderer({ antialias: true, alpha: false });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    const renderer = new WebGLRenderer({ antialias: false, alpha: false, powerPreference: 'low-power' });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
     renderer.domElement.style.width = '100%';
     renderer.domElement.style.height = '100%';
     containerRef.current.appendChild(renderer.domElement);
@@ -432,8 +433,20 @@ export default function FloatingLines({
       renderer.domElement.addEventListener('pointerleave', handlePointerLeave);
     }
 
+    // Pause rendering when off-screen via IntersectionObserver
+    const visObserver = new IntersectionObserver(
+      ([entry]) => { visibleRef.current = entry.isIntersecting; },
+      { threshold: 0 }
+    );
+    if (containerRef.current) visObserver.observe(containerRef.current);
+
     let raf = 0;
     const renderLoop = () => {
+      raf = requestAnimationFrame(renderLoop);
+
+      // Skip GPU work when scrolled away
+      if (!visibleRef.current) return;
+
       uniforms.iTime.value = clock.getElapsedTime();
 
       if (interactive) {
@@ -450,12 +463,12 @@ export default function FloatingLines({
       }
 
       renderer.render(scene, camera);
-      raf = requestAnimationFrame(renderLoop);
     };
     renderLoop();
 
     return () => {
       cancelAnimationFrame(raf);
+      visObserver.disconnect();
       if (ro && containerRef.current) {
         ro.disconnect();
       }

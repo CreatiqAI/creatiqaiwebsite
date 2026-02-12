@@ -27,14 +27,12 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Snap sections - GPU composited, exactly one viewport */
+/* Snap sections — no extra GPU layers */
 .snap-section {
   scroll-snap-align: start;
   scroll-snap-stop: always;
   height: 100vh;
   overflow: hidden;
-  will-change: scroll-position;
-  transform: translateZ(0);
 }
 
 /* Orbiting border glow button */
@@ -163,6 +161,35 @@ body {
   border-color: rgba(96, 165, 250, 0.6);
 }
 
+/* CSS-only card glow border (replaces Canvas2D ElectricBorder) */
+.css-glow-border {
+  position: relative;
+  border-radius: 1rem;
+}
+
+.css-glow-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--glow-angle, 0deg),
+    transparent 0%,
+    transparent 30%,
+    var(--card-glow, #2563eb) 50%,
+    transparent 70%,
+    transparent 100%
+  );
+  opacity: 0.4;
+  animation: glow-rotate 6s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 1px;
+  pointer-events: none;
+}
+
 /* Section gradient divider */
 .section-divider {
   height: 1px;
@@ -195,8 +222,6 @@ body {
 .bg-orb {
   position: absolute;
   border-radius: 50%;
-  will-change: transform;
-  transform: translateZ(0);
   pointer-events: none;
 }
 
@@ -222,7 +247,6 @@ body {
   width: 40%;
   background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.3), rgba(124, 58, 237, 0.3), transparent);
   animation: shimmer-line 8s ease-in-out infinite;
-  will-change: transform;
   pointer-events: none;
 }
 
