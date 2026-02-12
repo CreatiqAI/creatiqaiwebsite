@@ -67,7 +67,15 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
 
 export function FAQSection() {
     return (
-        <section id="faq" className="relative z-10 py-12 px-6 flex items-center h-full">
+        <section id="faq" className="relative z-10 py-12 px-6 flex items-center h-full overflow-hidden bg-[#03030a]">
+            {/* Background: Centered radial pulse */}
+            <div className="absolute inset-0 -z-10">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-violet-500/[0.04] blur-[100px]" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full border border-white/[0.03]" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-white/[0.02]" />
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/10 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/10 to-transparent" />
+            </div>
             <div className="max-w-3xl mx-auto w-full">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}

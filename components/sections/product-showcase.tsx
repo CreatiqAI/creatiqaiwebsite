@@ -14,7 +14,14 @@ const features = [
 
 export function ProductShowcase() {
     return (
-        <section className="relative z-10 py-12 px-6 h-full flex items-center">
+        <section className="relative z-10 py-12 px-6 h-full flex items-center overflow-hidden bg-[#03030a]">
+            {/* Background: Grid pattern + accent glow */}
+            <div className="absolute inset-0 -z-10">
+                <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-blue-500/[0.04] rounded-full blur-[120px]" />
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/10 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/10 to-transparent" />
+            </div>
             <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     {/* Left: Content */}

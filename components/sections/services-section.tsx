@@ -32,7 +32,14 @@ const services = [
 
 export function ServicesSection() {
     return (
-        <section id="services" className="relative z-10 py-12 px-6 h-full flex items-center">
+        <section id="services" className="relative z-10 py-12 px-6 h-full flex items-center overflow-hidden">
+            {/* Background: Radial gradient mesh */}
+            <div className="absolute inset-0 -z-10">
+                <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-blue-600/[0.06] rounded-full blur-[100px]" />
+                <div className="absolute bottom-1/4 -right-32 w-[400px] h-[400px] bg-violet-600/[0.05] rounded-full blur-[80px]" />
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+            </div>
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}

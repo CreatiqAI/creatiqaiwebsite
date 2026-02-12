@@ -32,7 +32,14 @@ const steps = [
 
 export function HowItWorksSection() {
     return (
-        <section id="how-it-works" className="relative z-10 py-12 px-6 h-full flex items-center">
+        <section id="how-it-works" className="relative z-10 py-12 px-6 h-full flex items-center overflow-hidden">
+            {/* Background: Diagonal gradient streaks */}
+            <div className="absolute inset-0 -z-10">
+                <div className="absolute -top-40 right-1/4 w-[300px] h-[600px] bg-gradient-to-b from-violet-500/[0.04] to-transparent rotate-[25deg] blur-[60px]" />
+                <div className="absolute -bottom-40 left-1/4 w-[300px] h-[600px] bg-gradient-to-t from-blue-500/[0.04] to-transparent -rotate-[25deg] blur-[60px]" />
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+            </div>
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
