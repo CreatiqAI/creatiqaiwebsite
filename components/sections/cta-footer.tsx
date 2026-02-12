@@ -16,7 +16,6 @@ const footerLinks = {
         { label: "FAQ", href: "#faq" },
     ],
     company: [
-        { label: "About", href: "/about" },
         { label: "Contact", href: "#contact" },
         { label: "Privacy Policy", href: "#" },
     ],
@@ -27,7 +26,16 @@ export function CTAFooter() {
         <section id="contact" className="relative z-10 bg-[#030308] h-full flex flex-col overflow-hidden">
             {/* CTA Area */}
             <div className="relative flex-1 flex items-center justify-center px-6">
-                <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(37,99,235,0.06) 0%, transparent 60%), radial-gradient(ellipse 35% 35% at 50% 50%, rgba(124,58,237,0.04) 0%, transparent 60%)" }} />
+                <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(37,99,235,0.1) 0%, transparent 60%), radial-gradient(ellipse 35% 35% at 50% 50%, rgba(124,58,237,0.08) 0%, transparent 60%)" }}>
+                    {/* Floating orbs */}
+                    <div className="bg-orb bg-orb-blue w-[500px] h-[500px] -top-32 -left-40" />
+                    <div className="bg-orb bg-orb-violet w-[450px] h-[450px] -bottom-24 -right-32" />
+                    <div className="bg-orb bg-orb-pulse w-[350px] h-[350px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                    {/* Shimmer line */}
+                    <div className="shimmer-line top-1/3 left-0" style={{ animationDelay: "1s" }} />
+                    {/* Top edge line */}
+                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/15 to-transparent" />
+                </div>
 
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}

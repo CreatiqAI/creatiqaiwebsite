@@ -96,9 +96,6 @@ export default function RootLayout({
                                 <a href="/#how-it-works" className="px-4 py-2 rounded-lg text-sm text-white/50 hover:text-white hover:bg-white/5 transition-all">
                                     How It Works
                                 </a>
-                                <Link href="/about" className="px-4 py-2 rounded-lg text-sm text-white/50 hover:text-white hover:bg-white/5 transition-all">
-                                    About
-                                </Link>
                                 <Link href="/blog" className="px-4 py-2 rounded-lg text-sm text-white/50 hover:text-white hover:bg-white/5 transition-all">
                                     Blog
                                 </Link>

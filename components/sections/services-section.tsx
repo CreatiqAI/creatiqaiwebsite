@@ -33,10 +33,16 @@ const services = [
 export function ServicesSection() {
     return (
         <section id="services" className="relative z-10 py-12 px-6 h-full flex items-center overflow-hidden">
-            {/* Background: Radial gradient mesh (no blur, GPU-friendly) */}
-            <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(ellipse 60% 50% at 10% 40%, rgba(37,99,235,0.06) 0%, transparent 70%), radial-gradient(ellipse 50% 50% at 90% 60%, rgba(124,58,237,0.05) 0%, transparent 70%)" }}>
-                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+            {/* Background: Gradient mesh + floating orbs */}
+            <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(ellipse 60% 50% at 10% 40%, rgba(37,99,235,0.1) 0%, transparent 70%), radial-gradient(ellipse 50% 50% at 90% 60%, rgba(124,58,237,0.08) 0%, transparent 70%)" }}>
+                {/* Floating orbs */}
+                <div className="bg-orb bg-orb-blue w-[500px] h-[500px] -top-20 -left-40" />
+                <div className="bg-orb bg-orb-violet w-[400px] h-[400px] -bottom-20 -right-32" />
+                {/* Shimmer line */}
+                <div className="shimmer-line top-1/3 left-0" />
+                {/* Edge lines */}
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/15 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/15 to-transparent" />
             </div>
             <div className="max-w-7xl mx-auto">
                 <motion.div

@@ -33,10 +33,17 @@ const steps = [
 export function HowItWorksSection() {
     return (
         <section id="how-it-works" className="relative z-10 py-12 px-6 h-full flex items-center overflow-hidden">
-            {/* Background: Diagonal gradient streaks (no blur) */}
-            <div className="absolute inset-0 -z-10" style={{ background: "linear-gradient(155deg, transparent 30%, rgba(124,58,237,0.04) 50%, transparent 70%), linear-gradient(205deg, transparent 30%, rgba(37,99,235,0.04) 50%, transparent 70%)" }}>
-                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
+            {/* Background: Diagonal gradient streaks + floating orbs */}
+            <div className="absolute inset-0 -z-10" style={{ background: "linear-gradient(155deg, transparent 20%, rgba(124,58,237,0.08) 50%, transparent 80%), linear-gradient(205deg, transparent 20%, rgba(37,99,235,0.08) 50%, transparent 80%)" }}>
+                {/* Floating orbs */}
+                <div className="bg-orb bg-orb-violet w-[500px] h-[500px] -top-32 right-1/4" />
+                <div className="bg-orb bg-orb-blue w-[400px] h-[400px] -bottom-24 left-1/4" />
+                {/* Shimmer lines */}
+                <div className="shimmer-line top-1/4 left-0" style={{ animationDelay: "2s" }} />
+                <div className="shimmer-line bottom-1/3 left-0" style={{ animationDelay: "5s" }} />
+                {/* Edge lines */}
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/15 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/15 to-transparent" />
             </div>
             <div className="max-w-7xl mx-auto">
                 <motion.div

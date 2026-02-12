@@ -68,12 +68,21 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
 export function FAQSection() {
     return (
         <section id="faq" className="relative z-10 py-12 px-6 flex items-center h-full overflow-hidden bg-[#03030a]">
-            {/* Background: Centered radial glow (no blur) */}
-            <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(circle at 50% 50%, rgba(124,58,237,0.04) 0%, transparent 60%)" }}>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full border border-white/[0.03]" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-white/[0.02]" />
-                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/10 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/10 to-transparent" />
+            {/* Background: Centered radial glow + floating orbs + rings */}
+            <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(circle at 50% 50%, rgba(124,58,237,0.08) 0%, transparent 60%)" }}>
+                {/* Concentric rings */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full border border-white/[0.04]" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-white/[0.03]" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-white/[0.02]" />
+                {/* Floating orbs */}
+                <div className="bg-orb bg-orb-violet w-[500px] h-[500px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-orb-pulse" style={{ background: "radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 60%)" }} />
+                <div className="bg-orb bg-orb-blue w-[350px] h-[350px] -top-16 -right-24" />
+                <div className="bg-orb bg-orb-violet w-[300px] h-[300px] -bottom-16 -left-20" />
+                {/* Shimmer line */}
+                <div className="shimmer-line top-2/3 left-0" style={{ animationDelay: "4s" }} />
+                {/* Edge lines */}
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/15 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/15 to-transparent" />
             </div>
             <div className="max-w-3xl mx-auto w-full">
                 <motion.div

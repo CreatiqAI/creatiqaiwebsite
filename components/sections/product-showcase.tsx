@@ -15,11 +15,18 @@ const features = [
 export function ProductShowcase() {
     return (
         <section className="relative z-10 py-12 px-6 h-full flex items-center overflow-hidden bg-[#03030a]">
-            {/* Background: Grid pattern + accent glow (no blur) */}
-            <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(37,99,235,0.04) 0%, transparent 70%)" }}>
-                <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
-                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/10 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/10 to-transparent" />
+            {/* Background: Grid pattern + floating orbs + accent glow */}
+            <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(37,99,235,0.08) 0%, transparent 70%)" }}>
+                <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
+                {/* Floating orbs */}
+                <div className="bg-orb bg-orb-blue w-[600px] h-[600px] top-1/4 -right-48" />
+                <div className="bg-orb bg-orb-violet w-[450px] h-[450px] bottom-0 -left-40" />
+                <div className="bg-orb bg-orb-pulse w-[300px] h-[300px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                {/* Shimmer line */}
+                <div className="shimmer-line bottom-1/4 left-0" style={{ animationDelay: "3s" }} />
+                {/* Edge lines */}
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/15 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/15 to-transparent" />
             </div>
             <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
