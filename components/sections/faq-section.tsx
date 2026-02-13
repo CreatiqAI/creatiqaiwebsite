@@ -67,7 +67,7 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
 
 export function FAQSection() {
     return (
-        <section id="faq" className="relative z-10 py-16 md:py-12 px-4 md:px-6 flex items-center min-h-screen md:h-full overflow-hidden bg-[#03030a]/85">
+        <section id="faq" className="relative z-10 py-16 md:py-12 px-4 md:px-6 md:flex items-center md:h-full overflow-hidden bg-[#03030a]/85">
             {/* Background: Centered radial glow + floating orbs + rings */}
             <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(circle at 50% 50%, rgba(124,58,237,0.08) 0%, transparent 60%)" }}>
                 {/* Concentric rings */}

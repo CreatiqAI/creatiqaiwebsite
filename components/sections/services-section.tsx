@@ -30,7 +30,7 @@ const services = [
 
 export function ServicesSection() {
     return (
-        <section id="services" className="relative z-10 py-16 md:py-12 px-4 md:px-6 min-h-screen md:h-full flex items-center overflow-hidden">
+        <section id="services" className="relative z-10 py-16 md:py-12 px-4 md:px-6 md:h-full md:flex items-center overflow-hidden">
             {/* Background: Gradient mesh + floating orbs */}
             <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(ellipse 60% 50% at 10% 40%, rgba(37,99,235,0.1) 0%, transparent 70%), radial-gradient(ellipse 50% 50% at 90% 60%, rgba(124,58,237,0.08) 0%, transparent 70%)" }}>
                 {/* Floating orbs */}
