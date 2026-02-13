@@ -23,9 +23,9 @@ const footerLinks = {
 
 export function CTAFooter() {
     return (
-        <section id="contact" className="relative z-10 bg-[#030308]/85 h-full flex flex-col overflow-hidden">
+        <section id="contact" className="relative z-10 bg-[#030308]/85 min-h-screen md:h-full flex flex-col overflow-hidden">
             {/* CTA Area */}
-            <div className="relative flex-1 flex items-center justify-center px-6">
+            <div className="relative flex-1 flex items-center justify-center px-4 md:px-6 py-16 md:py-0">
                 <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(37,99,235,0.1) 0%, transparent 60%), radial-gradient(ellipse 35% 35% at 50% 50%, rgba(124,58,237,0.08) 0%, transparent 60%)" }}>
                     {/* Floating orbs */}
                     <div className="bg-orb bg-orb-blue w-[500px] h-[500px] -top-32 -left-40" />
@@ -44,14 +44,14 @@ export function CTAFooter() {
                     transition={{ duration: 0.8 }}
                     className="max-w-4xl mx-auto text-center"
                 >
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
+                    <h2 className="text-2xl md:text-5xl font-bold mb-4 text-white">
                         Ready to Transform Your{" "}
                         <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600">
                             Business
                         </span>
                         ?
                     </h2>
-                    <p className="text-white/60 text-lg mb-8 max-w-2xl mx-auto">
+                    <p className="text-white/60 text-sm md:text-lg mb-6 md:mb-8 max-w-2xl mx-auto">
                         Start your digital transformation today.
                     </p>
 
@@ -59,7 +59,7 @@ export function CTAFooter() {
                         <div className="glow-border-btn glow-border-btn-primary" style={{ "--glow-color": "#3b82f6" } as React.CSSProperties}>
                             <a
                                 href="https://2ndu.ai"
-                                className="glow-border-btn-inner group flex items-center gap-2 px-8 py-3 text-white font-bold text-lg hover:scale-105 transition-transform"
+                                className="glow-border-btn-inner group flex items-center gap-2 px-6 py-3 md:px-8 text-white font-bold text-base md:text-lg hover:scale-105 transition-transform"
                             >
                                 Start Automating
                                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -67,7 +67,7 @@ export function CTAFooter() {
                         </div>
                         <a
                             href="#services"
-                            className="px-8 py-3 rounded-full glass-btn text-white font-medium text-lg"
+                            className="px-6 py-3 md:px-8 rounded-full glass-btn text-white font-medium text-base md:text-lg"
                         >
                             Explore Services
                         </a>
@@ -79,7 +79,7 @@ export function CTAFooter() {
             <div className="section-divider mx-6" />
 
             {/* Compact Footer */}
-            <div className="max-w-7xl mx-auto px-6 py-8 w-full">
+            <div className="max-w-7xl mx-auto px-4 md:px-6 py-6 md:py-8 w-full">
                 <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-6">
                     {/* Brand */}
                     <div className="flex items-center gap-3">
@@ -90,7 +90,7 @@ export function CTAFooter() {
                     </div>
 
                     {/* Links in a row */}
-                    <div className="flex flex-wrap gap-x-12 gap-y-4">
+                    <div className="flex flex-wrap gap-x-8 md:gap-x-12 gap-y-4">
                         <div>
                             <h4 className="text-white text-sm font-semibold mb-2">Services</h4>
                             <ul className="space-y-1.5">

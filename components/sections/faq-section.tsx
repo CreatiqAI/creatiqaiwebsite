@@ -35,10 +35,10 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
         >
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full p-5 rounded-2xl bg-white/5 hover:bg-white/[0.08] border border-white/10 transition-colors text-left"
+                className="w-full p-4 md:p-5 rounded-2xl bg-white/5 hover:bg-white/[0.08] border border-white/10 transition-colors text-left"
             >
                 <div className="flex justify-between items-center gap-4">
-                    <span className="font-semibold text-white/95">{question}</span>
+                    <span className="font-semibold text-sm md:text-base text-white/95">{question}</span>
                     <motion.div
                         animate={{ rotate: isOpen ? 180 : 0 }}
                         transition={{ duration: 0.3 }}
@@ -67,7 +67,7 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
 
 export function FAQSection() {
     return (
-        <section id="faq" className="relative z-10 py-12 px-6 flex items-center h-full overflow-hidden bg-[#03030a]/85">
+        <section id="faq" className="relative z-10 py-16 md:py-12 px-4 md:px-6 flex items-center min-h-screen md:h-full overflow-hidden bg-[#03030a]/85">
             {/* Background: Centered radial glow + floating orbs + rings */}
             <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(circle at 50% 50%, rgba(124,58,237,0.08) 0%, transparent 60%)" }}>
                 {/* Concentric rings */}
@@ -90,15 +90,15 @@ export function FAQSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.8 }}
-                    className="mb-12 text-center"
+                    className="mb-8 md:mb-12 text-center"
                 >
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
+                    <h2 className="text-2xl md:text-5xl font-bold mb-4 text-white">
                         Frequently Asked{" "}
                         <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600">
                             Questions
                         </span>
                     </h2>
-                    <p className="text-white/50 text-lg">
+                    <p className="text-white/50 text-sm md:text-lg">
                         Everything you need to know about our services.
                     </p>
                 </motion.div>

@@ -30,7 +30,7 @@ const services = [
 
 export function ServicesSection() {
     return (
-        <section id="services" className="relative z-10 py-12 px-6 h-full flex items-center overflow-hidden">
+        <section id="services" className="relative z-10 py-16 md:py-12 px-4 md:px-6 min-h-screen md:h-full flex items-center overflow-hidden">
             {/* Background: Gradient mesh + floating orbs */}
             <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(ellipse 60% 50% at 10% 40%, rgba(37,99,235,0.1) 0%, transparent 70%), radial-gradient(ellipse 50% 50% at 90% 60%, rgba(124,58,237,0.08) 0%, transparent 70%)" }}>
                 {/* Floating orbs */}
@@ -48,20 +48,20 @@ export function ServicesSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.8 }}
-                    className="mb-20 text-center"
+                    className="mb-10 md:mb-20 text-center"
                 >
-                    <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
+                    <h2 className="text-2xl md:text-5xl font-bold mb-4 md:mb-6 text-white">
                         What We{" "}
                         <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600">
                             Build
                         </span>
                     </h2>
-                    <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto">
+                    <p className="text-white/60 text-sm md:text-xl max-w-2xl mx-auto">
                         Three pillars of digital transformation — custom websites, intelligent AI systems, and automated chatbot solutions.
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-8">
                     {services.map((service, i) => (
                         <motion.div
                             key={service.title}
@@ -72,7 +72,7 @@ export function ServicesSection() {
                             className="css-glow-border"
                             style={{ "--card-glow": service.highlight ? "#7c3aed" : "#2563eb" } as React.CSSProperties}
                         >
-                            <div className="p-8 flex flex-col h-full bg-white/5 rounded-2xl border border-white/10">
+                            <div className="p-5 md:p-8 flex flex-col h-full bg-white/5 rounded-2xl border border-white/10">
                                 <div
                                     className={`inline-flex p-3 rounded-xl mb-6 w-fit ${
                                         service.highlight
@@ -87,11 +87,11 @@ export function ServicesSection() {
                                     {service.title}
                                 </h3>
 
-                                <p className="text-white/60 leading-relaxed mb-6 flex-1">
+                                <p className="text-white/60 text-sm md:text-base leading-relaxed mb-4 md:mb-6 flex-1">
                                     {service.description}
                                 </p>
 
-                                <ul className="space-y-2 mb-8">
+                                <ul className="space-y-1.5 md:space-y-2 mb-6 md:mb-8">
                                     {service.features.map((feature) => (
                                         <li key={feature} className="flex items-center gap-2 text-sm text-white/40">
                                             <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />

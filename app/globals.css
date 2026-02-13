@@ -19,20 +19,27 @@ body {
   overflow-x: hidden;
 }
 
-/* Full-page snap scroll container */
+/* Full-page snap scroll container — desktop only */
 .snap-container {
-  height: 100vh;
   overflow-y: auto;
-  scroll-snap-type: y mandatory;
   -webkit-overflow-scrolling: touch;
 }
 
-/* Snap sections — no extra GPU layers */
 .snap-section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  height: 100vh;
-  overflow: hidden;
+  min-height: auto;
+}
+
+@media (min-width: 768px) {
+  .snap-container {
+    height: 100vh;
+    scroll-snap-type: y mandatory;
+  }
+  .snap-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    height: 100vh;
+    overflow: hidden;
+  }
 }
 
 /* Orbiting border glow button */

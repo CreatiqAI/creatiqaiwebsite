@@ -14,7 +14,7 @@ const features = [
 
 export function ProductShowcase() {
     return (
-        <section className="relative z-10 py-12 px-6 h-full flex items-center overflow-hidden bg-[#03030a]/85">
+        <section className="relative z-10 py-16 md:py-12 px-4 md:px-6 min-h-screen md:h-full flex items-center overflow-hidden bg-[#03030a]/85">
             {/* Background: Grid pattern + floating orbs + accent glow */}
             <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(37,99,235,0.08) 0%, transparent 70%)" }}>
                 <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
@@ -29,7 +29,7 @@ export function ProductShowcase() {
                 <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/15 to-transparent" />
             </div>
             <div className="max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
                     {/* Left: Content */}
                     <motion.div
                         initial={{ opacity: 0, x: -40 }}
@@ -43,21 +43,21 @@ export function ProductShowcase() {
                             </span>
                         </div>
 
-                        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
+                        <h2 className="text-2xl md:text-5xl font-bold mb-4 md:mb-6 text-white">
                             Meet{" "}
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600">
                                 2ndu.ai
                             </span>
                         </h2>
 
-                        <p className="text-white/60 text-lg leading-relaxed mb-10">
+                        <p className="text-white/60 text-sm md:text-lg leading-relaxed mb-6 md:mb-10">
                             The smartest way to automate your WhatsApp business communications.
                             Connect your WhatsApp Business account, train the AI with your data,
                             and let it handle customer conversations 24/7 — qualifying leads,
                             answering queries, and closing sales while you sleep.
                         </p>
 
-                        <ul className="space-y-4 mb-10">
+                        <ul className="space-y-3 md:space-y-4 mb-6 md:mb-10">
                             {features.map((feature) => (
                                 <li
                                     key={feature.text}
@@ -66,14 +66,14 @@ export function ProductShowcase() {
                                     <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center">
                                         <feature.icon size={16} className="text-blue-400" />
                                     </div>
-                                    <span className="text-white/60">{feature.text}</span>
+                                    <span className="text-white/60 text-sm md:text-base">{feature.text}</span>
                                 </li>
                             ))}
                         </ul>
 
                         <a
                             href="https://2ndu.ai"
-                            className="glass-btn-primary group inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105"
+                            className="glass-btn-primary group inline-flex items-center gap-2 px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg transition-all duration-300 hover:scale-105"
                         >
                             Try 2ndu.ai Free
                             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -88,7 +88,7 @@ export function ProductShowcase() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="relative"
                     >
-                        <div className="relative rounded-3xl p-8 md:p-12 bg-white/5 border border-white/10 shadow-lg">
+                        <div className="relative rounded-2xl md:rounded-3xl p-5 md:p-12 bg-white/5 border border-white/10 shadow-lg">
                             {/* Chat simulation */}
                             <div className="space-y-4">
                                 {/* Incoming message */}
