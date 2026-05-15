@@ -32,11 +32,10 @@ body {
 @media (min-width: 768px) {
   .snap-container {
     height: 100vh;
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
   }
   .snap-section {
     scroll-snap-align: start;
-    scroll-snap-stop: always;
     height: 100vh;
     overflow: hidden;
   }

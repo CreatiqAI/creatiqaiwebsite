@@ -10,6 +10,7 @@ import { seoConfig } from "@/lib/seo-config";
 import { GoogleAnalytics } from "@/components/google-analytics";
 import { TrackPageView } from "@/components/track-view";
 import { ConditionalNav } from "@/components/conditional-nav";
+import { LenisProvider } from "@/components/lenis-provider";
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"] });
 
 export const metadata: Metadata = {
@@ -122,7 +123,7 @@ export default function RootLayout({
                     </nav>
                 </ConditionalNav>
 
-                {children}
+                <LenisProvider>{children}</LenisProvider>
             </body>
         </html>
     );
