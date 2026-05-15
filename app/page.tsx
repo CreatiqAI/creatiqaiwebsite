@@ -1,6 +1,7 @@
 import { headers } from "next/headers";
 import { HeroSection } from "@/components/sections/hero-section";
 import { ServicesSection } from "@/components/sections/services-section";
+import { ProblemSolutionSection } from "@/components/sections/problem-solution-section";
 import { ProductShowcase } from "@/components/sections/product-showcase";
 import { HowItWorksSection } from "@/components/sections/how-it-works-section";
 import { FAQSection } from "@/components/sections/faq-section";
@@ -20,6 +21,9 @@ export default function Home() {
             </div>
             <div className="snap-section">
                 <ServicesSection />
+            </div>
+            <div className="snap-section">
+                <ProblemSolutionSection />
             </div>
             <div className="snap-section">
                 <ProductShowcase />
