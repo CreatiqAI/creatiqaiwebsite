@@ -2,7 +2,37 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
+import {
+    SiWhatsapp,
+    SiStripe,
+    SiShopify,
+    SiSlack,
+    SiGooglesheets,
+    SiHubspot,
+    SiNotion,
+} from "react-icons/si";
 import { getGeoContent } from "@/lib/geo-content";
+
+const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+    SiWhatsapp,
+    SiStripe,
+    SiShopify,
+    SiSlack,
+    SiGooglesheets,
+    SiHubspot,
+    SiNotion,
+};
+
+function IntegrationIcon({ name }: { name: string }) {
+    const Icon = ICON_MAP[name];
+    if (!Icon) return null;
+    return (
+        <Icon
+            size={20}
+            className="text-white/55 hover:text-white transition-colors"
+        />
+    );
+}
 
 export function HeroSection({ country }: { country: string }) {
     const geo = getGeoContent(country);
@@ -79,21 +109,44 @@ export function HeroSection({ country }: { country: string }) {
                     </div>
                 </motion.div>
 
-                {/* Trust Signals */}
+                {/* Metric strip */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1.8 }}
-                    className="flex flex-wrap items-center justify-center gap-3 md:gap-10"
+                    className="flex flex-wrap items-center justify-center gap-x-4 md:gap-x-8 gap-y-2 mb-5 md:mb-7"
                 >
-                    {["OFFICIAL WHATSAPP API", "META BUSINESS PARTNER", "AI-POWERED SOLUTIONS"].map((label, i) => (
-                        <span key={label} className="flex items-center gap-2 md:gap-3">
-                            {i > 0 && <span className="w-1 h-1 rounded-full bg-white/30 hidden md:block" />}
-                            <span className="text-white/50 text-[10px] md:text-xs font-semibold tracking-[0.12em] md:tracking-[0.2em]">
-                                {label}
+                    {[
+                        { value: "50+", label: "projects" },
+                        { value: "3.2s", label: "avg load" },
+                        { value: "99.9%", label: "uptime" },
+                        { value: "24/7", label: "support" },
+                    ].map((m, i) => (
+                        <span key={m.label} className="flex items-center gap-2 text-sm md:text-base">
+                            {i > 0 && <span className="hidden md:inline w-1 h-1 rounded-full bg-white/20" />}
+                            <span className="font-bold tabular-nums bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-400">
+                                {m.value}
                             </span>
+                            <span className="text-white/40">{m.label}</span>
                         </span>
                     ))}
+                </motion.div>
+
+                {/* Integrations strip */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 2.0 }}
+                    className="flex flex-col items-center gap-2"
+                >
+                    <div className="flex items-center gap-3 md:gap-4 opacity-60">
+                        {["SiWhatsapp", "SiStripe", "SiShopify", "SiSlack", "SiGooglesheets", "SiHubspot", "SiNotion"].map((name) => (
+                            <IntegrationIcon key={name} name={name} />
+                        ))}
+                    </div>
+                    <span className="text-[10px] md:text-xs text-white/35 tracking-wide">
+                        Connects with WhatsApp, Stripe, Shopify, Slack +30 more
+                    </span>
                 </motion.div>
             </div>
 
