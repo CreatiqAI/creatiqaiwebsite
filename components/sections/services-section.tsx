@@ -10,21 +10,30 @@ const services = [
         description:
             "Stunning, high-performance websites tailored to your brand. From landing pages to full-scale web platforms — we build digital experiences that convert visitors into customers.",
         features: ["Custom UI/UX Design", "Responsive Development", "Performance Optimization", "SEO-Ready Architecture"],
+        metric: { value: "142", label: "sites shipped" },
+        cta: { label: "Learn more", href: "#contact" },
+        size: "large" as const,
     },
     {
         icon: Cpu,
         title: "AI System Customization",
         description:
-            "Integrate intelligent AI into your existing business systems. We customize and deploy AI solutions that automate workflows, enhance decision-making, and drive operational efficiency.",
+            "Integrate intelligent AI into your existing business systems — automate workflows, enhance decision-making, drive operational efficiency.",
         features: ["Workflow Automation", "AI Integration", "Custom AI Models", "Data Analytics"],
+        metric: { value: "+40%", label: "avg efficiency lift" },
+        cta: { label: "Learn more", href: "#contact" },
+        size: "small" as const,
     },
     {
         icon: MessageSquare,
         title: "2ndu.ai — Chatbot Platform",
         description:
-            "Our flagship product. Plug a powerful AI chatbot into your WhatsApp Business in minutes — no coding required. Automate customer support, qualify leads, and close deals 24/7.",
+            "Plug a powerful AI chatbot into your WhatsApp Business in minutes — no coding required.",
         features: ["WhatsApp Integration", "No-Code Setup", "Multi-Language AI", "Analytics Dashboard"],
+        metric: { value: "10k+", label: "chats handled" },
+        cta: { label: "Try 2ndu.ai", href: "https://2ndu.ai" },
         highlight: true,
+        size: "small" as const,
     },
 ];
 
@@ -61,59 +70,72 @@ export function ServicesSection() {
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-8">
-                    {services.map((service, i) => (
-                        <motion.div
-                            key={service.title}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: i * 0.1 }}
-                            className="css-glow-border"
-                            style={{ "--card-glow": service.highlight ? "#7c3aed" : "#2563eb" } as React.CSSProperties}
-                        >
-                            <div className="p-5 md:p-8 flex flex-col h-full bg-white/5 rounded-2xl border border-white/10">
-                                <div
-                                    className={`inline-flex p-3 rounded-xl mb-6 w-fit ${
-                                        service.highlight
-                                            ? "bg-violet-500/10 text-violet-400"
-                                            : "bg-blue-500/10 text-blue-400"
-                                    }`}
-                                >
-                                    <service.icon size={28} />
+                <div className="grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-4 md:gap-6 auto-rows-fr">
+                    {services.map((service, i) => {
+                        const isLarge = service.size === "large";
+                        return (
+                            <motion.div
+                                key={service.title}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.4, delay: i * 0.1 }}
+                                className={`css-glow-border ${isLarge ? "lg:col-span-2 lg:row-span-2" : ""}`}
+                                style={{ "--card-glow": service.highlight ? "#7c3aed" : "#2563eb" } as React.CSSProperties}
+                            >
+                                <div className="relative p-5 md:p-8 flex flex-col h-full bg-white/5 rounded-2xl border border-white/10">
+                                    {/* Metric badge top-right */}
+                                    <div className="absolute top-4 right-4 md:top-5 md:right-5 flex items-baseline gap-1.5 px-2.5 py-1 rounded-full bg-white/[0.06] border border-white/10">
+                                        <span className="text-xs md:text-sm font-bold tabular-nums bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-400">
+                                            {service.metric.value}
+                                        </span>
+                                        <span className="text-[10px] md:text-xs text-white/45">{service.metric.label}</span>
+                                    </div>
+
+                                    <div
+                                        className={`inline-flex p-3 rounded-xl mb-4 md:mb-6 w-fit ${
+                                            service.highlight
+                                                ? "bg-violet-500/10 text-violet-400"
+                                                : "bg-blue-500/10 text-blue-400"
+                                        }`}
+                                    >
+                                        <service.icon size={isLarge ? 32 : 26} />
+                                    </div>
+
+                                    <h3 className={`font-bold mb-3 md:mb-4 text-white/95 ${isLarge ? "text-2xl md:text-3xl" : "text-xl md:text-2xl"}`}>
+                                        {service.title}
+                                    </h3>
+
+                                    <p className={`text-white/60 leading-relaxed mb-4 md:mb-6 flex-1 ${isLarge ? "text-sm md:text-base" : "text-sm"}`}>
+                                        {service.description}
+                                    </p>
+
+                                    {isLarge && (
+                                        <ul className="space-y-1.5 md:space-y-2 mb-6 md:mb-8">
+                                            {service.features.map((feature) => (
+                                                <li key={feature} className="flex items-center gap-2 text-sm text-white/40">
+                                                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                                                    {feature}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
+
+                                    <a
+                                        href={service.cta.href}
+                                        className={`inline-flex items-center gap-2 text-sm font-medium transition-colors mt-auto ${
+                                            service.highlight
+                                                ? "text-violet-400 hover:text-violet-300"
+                                                : "text-blue-400 hover:text-blue-300"
+                                        }`}
+                                    >
+                                        {service.cta.label}
+                                        <ArrowRight size={14} />
+                                    </a>
                                 </div>
-
-                                <h3 className="text-xl md:text-2xl font-bold mb-4 text-white/95">
-                                    {service.title}
-                                </h3>
-
-                                <p className="text-white/60 text-sm md:text-base leading-relaxed mb-4 md:mb-6 flex-1">
-                                    {service.description}
-                                </p>
-
-                                <ul className="space-y-1.5 md:space-y-2 mb-6 md:mb-8">
-                                    {service.features.map((feature) => (
-                                        <li key={feature} className="flex items-center gap-2 text-sm text-white/40">
-                                            <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                                            {feature}
-                                        </li>
-                                    ))}
-                                </ul>
-
-                                <a
-                                    href={service.highlight ? "https://2ndu.ai" : "#contact"}
-                                    className={`inline-flex items-center gap-2 text-sm font-medium transition-colors ${
-                                        service.highlight
-                                            ? "text-violet-400 hover:text-violet-300"
-                                            : "text-blue-400 hover:text-blue-300"
-                                    }`}
-                                >
-                                    {service.highlight ? "Try 2ndu.ai" : "Learn More"}
-                                    <ArrowRight size={14} />
-                                </a>
-                            </div>
-                        </motion.div>
-                    ))}
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </div>
         </section>
