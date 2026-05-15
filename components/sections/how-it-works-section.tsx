@@ -9,24 +9,28 @@ const steps = [
         icon: Search,
         title: "Discover",
         description: "Tell us your business needs. We analyze your workflows, customer touchpoints, and automation opportunities.",
+        outcome: "Free, no commitment",
     },
     {
         number: "02",
         icon: PenTool,
         title: "Design",
         description: "We architect the perfect solution — whether it's a custom website, AI integration, or chatbot deployment.",
+        outcome: "Blueprint in 1 week",
     },
     {
         number: "03",
         icon: Rocket,
         title: "Deploy",
         description: "Launch your solution. Go live with a fully tested, production-ready system tailored to your business.",
+        outcome: "Live in 2–4 weeks",
     },
     {
         number: "04",
         icon: TrendingUp,
         title: "Optimize",
         description: "Continuous improvement powered by data. We monitor, refine, and scale your AI systems for peak performance.",
+        outcome: "Monthly insights",
     },
 ];
 
@@ -90,6 +94,13 @@ export function HowItWorksSection() {
 
                             <h3 className="text-base md:text-xl font-bold text-white mb-2 md:mb-3">{step.title}</h3>
                             <p className="text-white/40 leading-relaxed text-xs md:text-sm">{step.description}</p>
+
+                            <div className="mt-3 md:mt-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-500/[0.08] border border-blue-500/15">
+                                <span className="w-1 h-1 rounded-full bg-blue-400" />
+                                <span className="text-[10px] md:text-xs text-blue-200/80 font-medium">
+                                    {step.outcome}
+                                </span>
+                            </div>
                         </motion.div>
                     ))}
                 </div>
