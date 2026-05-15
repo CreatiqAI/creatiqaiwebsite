@@ -80,64 +80,98 @@ export function ProductShowcase() {
                         </a>
                     </motion.div>
 
-                    {/* Right: Visual mockup */}
+                    {/* Right: Phone mockup with live metric chip */}
                     <motion.div
                         initial={{ opacity: 0, x: 40 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-50px" }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="relative"
+                        className="relative flex items-center justify-center"
                     >
-                        <div className="relative rounded-2xl md:rounded-3xl p-5 md:p-12 bg-white/5 border border-white/10 shadow-lg">
-                            {/* Chat simulation */}
-                            <div className="space-y-4">
-                                {/* Incoming message */}
-                                <div className="flex gap-3">
-                                    <div className="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center flex-shrink-0">
-                                        <span className="text-xs text-green-400">U</span>
+                        {/* Floating metric chip */}
+                        <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.6 }}
+                            className="absolute top-4 right-2 md:top-2 md:right-2 lg:-top-4 lg:-right-4 z-10 px-3 py-2 md:px-4 md:py-2.5 rounded-2xl bg-white/[0.08] border border-white/10 backdrop-blur-md shadow-lg"
+                        >
+                            <div className="flex items-center gap-2">
+                                <span className="relative flex h-2 w-2">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+                                </span>
+                                <div className="leading-tight">
+                                    <div className="text-xs md:text-sm font-bold tabular-nums bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-400">
+                                        10,247
                                     </div>
-                                    <div className="bg-white/10 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%]">
-                                        <p className="text-white/80 text-sm">Hi, I&apos;m interested in your services. What packages do you offer?</p>
+                                    <div className="text-[9px] md:text-[10px] text-white/45 uppercase tracking-wider">
+                                        msgs this week
                                     </div>
                                 </div>
+                            </div>
+                        </motion.div>
 
-                                {/* AI response */}
-                                <div className="flex gap-3 justify-end">
-                                    <div className="bg-blue-500/10 border border-blue-500/20 rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%]">
-                                        <p className="text-blue-200 text-sm">
-                                            Hello! Thanks for reaching out. We offer customized AI solutions for your business. Let me help you find the perfect fit. What industry are you in?
-                                        </p>
-                                        <div className="mt-2 flex items-center gap-1 text-xs text-blue-400/60">
-                                            <Zap size={10} />
-                                            <span>2ndu.ai — Responded in 0.3s</span>
+                        {/* Phone frame */}
+                        <div className="phone-frame phone-floating w-full max-w-[320px] md:max-w-[360px]">
+                            <div className="phone-screen p-4 md:p-5">
+                                {/* Status bar */}
+                                <div className="flex items-center justify-between mb-3 px-1">
+                                    <span className="text-[10px] text-white/50">2ndu.ai · WhatsApp</span>
+                                    <span className="text-[10px] text-emerald-400 flex items-center gap-1">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                                        Online
+                                    </span>
+                                </div>
+
+                                {/* Chat */}
+                                <div className="space-y-3">
+                                    <div className="flex gap-2">
+                                        <div className="w-7 h-7 rounded-full bg-green-500/15 flex items-center justify-center flex-shrink-0">
+                                            <span className="text-[10px] text-green-400">U</span>
+                                        </div>
+                                        <div className="bg-white/[0.08] rounded-2xl rounded-tl-sm px-3 py-2 max-w-[80%]">
+                                            <p className="text-white/80 text-xs md:text-sm">
+                                                Hi, do you have the navy blazer in size M?
+                                            </p>
                                         </div>
                                     </div>
-                                    <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                        <span className="text-xs text-blue-400">AI</span>
-                                    </div>
-                                </div>
 
-                                {/* Another incoming */}
-                                <div className="flex gap-3">
-                                    <div className="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center flex-shrink-0">
-                                        <span className="text-xs text-green-400">U</span>
-                                    </div>
-                                    <div className="bg-white/10 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[80%]">
-                                        <p className="text-white/80 text-sm">I run an e-commerce store selling fashion items.</p>
-                                    </div>
-                                </div>
-
-                                {/* AI typing indicator */}
-                                <div className="flex gap-3 justify-end">
-                                    <div className="bg-blue-500/10 border border-blue-500/20 rounded-2xl rounded-tr-sm px-4 py-3">
-                                        <div className="flex gap-1">
-                                            <span className="w-2 h-2 rounded-full bg-blue-400/50 animate-pulse" />
-                                            <span className="w-2 h-2 rounded-full bg-blue-400/50 animate-pulse" style={{ animationDelay: "0.15s" }} />
-                                            <span className="w-2 h-2 rounded-full bg-blue-400/50 animate-pulse" style={{ animationDelay: "0.3s" }} />
+                                    <div className="flex gap-2 justify-end">
+                                        <div className="bg-blue-500/15 border border-blue-500/25 rounded-2xl rounded-tr-sm px-3 py-2 max-w-[80%]">
+                                            <p className="text-blue-100 text-xs md:text-sm">
+                                                Yes! Navy blazer in M is in stock. Want me to reserve it for you?
+                                            </p>
+                                            <div className="mt-1.5 flex items-center gap-1 text-[10px] text-blue-300/60">
+                                                <Zap size={9} />
+                                                <span>Replied in 0.3s</span>
+                                            </div>
+                                        </div>
+                                        <div className="w-7 h-7 rounded-full bg-blue-500/25 flex items-center justify-center flex-shrink-0">
+                                            <span className="text-[10px] text-blue-300">AI</span>
                                         </div>
                                     </div>
-                                    <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
-                                        <span className="text-xs text-blue-400">AI</span>
+
+                                    <div className="flex gap-2">
+                                        <div className="w-7 h-7 rounded-full bg-green-500/15 flex items-center justify-center flex-shrink-0">
+                                            <span className="text-[10px] text-green-400">U</span>
+                                        </div>
+                                        <div className="bg-white/[0.08] rounded-2xl rounded-tl-sm px-3 py-2 max-w-[80%]">
+                                            <p className="text-white/80 text-xs md:text-sm">Yes please!</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex gap-2 justify-end">
+                                        <div className="bg-blue-500/15 border border-blue-500/25 rounded-2xl rounded-tr-sm px-3 py-2">
+                                            <div className="flex gap-1">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-blue-400/60 animate-pulse" />
+                                                <span className="w-1.5 h-1.5 rounded-full bg-blue-400/60 animate-pulse" style={{ animationDelay: "0.15s" }} />
+                                                <span className="w-1.5 h-1.5 rounded-full bg-blue-400/60 animate-pulse" style={{ animationDelay: "0.3s" }} />
+                                            </div>
+                                        </div>
+                                        <div className="w-7 h-7 rounded-full bg-blue-500/25 flex items-center justify-center flex-shrink-0">
+                                            <span className="text-[10px] text-blue-300">AI</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
