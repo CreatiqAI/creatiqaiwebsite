@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, MessageCircle, Zap, Globe, BarChart3, Link2, Shield } from "lucide-react";
-import { useEffect, useState } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import { AnimatedCounter } from "@/components/animated-counter";
 
 const features = [
@@ -60,10 +60,11 @@ function useChatLoop() {
     return { messages: conversation.slice(0, visibleCount), isTyping };
 }
 
-function ChatBubble({ message }: { message: ChatMessage }) {
+const ChatBubble = forwardRef<HTMLDivElement, { message: ChatMessage }>(function ChatBubble({ message }, ref) {
     const isAi = message.from === "ai";
     return (
         <motion.div
+            ref={ref}
             layout
             initial={{ opacity: 0, y: 8, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -100,11 +101,12 @@ function ChatBubble({ message }: { message: ChatMessage }) {
             )}
         </motion.div>
     );
-}
+});
 
-function TypingIndicator() {
+const TypingIndicator = forwardRef<HTMLDivElement>(function TypingIndicator(_, ref) {
     return (
         <motion.div
+            ref={ref}
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
@@ -123,7 +125,7 @@ function TypingIndicator() {
             </div>
         </motion.div>
     );
-}
+});
 
 export function ProductShowcase() {
     const { messages, isTyping } = useChatLoop();
