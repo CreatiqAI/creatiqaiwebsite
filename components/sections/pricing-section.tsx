@@ -78,16 +78,19 @@ export function PricingSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.8 }}
-                    className="mb-10 md:mb-14 text-center"
+                    className="mb-12 md:mb-16 text-center"
                 >
-                    <h2 className="text-2xl md:text-5xl font-bold mb-4 text-white">
-                        Simple{" "}
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-400">
-                            transparent pricing
+                    <span className="inline-block text-xs md:text-sm font-bold text-blue-300 uppercase tracking-[0.2em] mb-4">
+                        Pricing
+                    </span>
+                    <h2 className="text-3xl md:text-6xl font-bold text-white tracking-tight leading-[1.05] mb-4">
+                        Honest pricing.{" "}
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-violet-400 to-blue-400 bg-[length:200%_auto] animate-[gradient-x_5s_ease-in-out_infinite]">
+                            No surprises.
                         </span>
                     </h2>
-                    <p className="text-white/55 text-sm md:text-lg max-w-2xl mx-auto">
-                        Pick the package that matches your stage. No hidden fees, no lock-ins.
+                    <p className="text-white/55 text-base md:text-lg max-w-xl mx-auto">
+                        Pick what fits your stage. Upgrade anytime.
                     </p>
                 </motion.div>
 

@@ -106,17 +106,17 @@ export function FAQSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.8 }}
-                    className="mb-8 md:mb-12 text-center"
+                    className="mb-10 md:mb-14 text-center"
                 >
-                    <h2 className="text-2xl md:text-5xl font-bold mb-4 text-white">
-                        Frequently Asked{" "}
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600">
-                            Questions
+                    <span className="inline-block text-xs md:text-sm font-bold text-violet-300 uppercase tracking-[0.2em] mb-4">
+                        FAQ
+                    </span>
+                    <h2 className="text-3xl md:text-6xl font-bold text-white tracking-tight leading-[1.05]">
+                        Questions?{" "}
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-violet-400 to-blue-400 bg-[length:200%_auto] animate-[gradient-x_5s_ease-in-out_infinite]">
+                            Answers.
                         </span>
                     </h2>
-                    <p className="text-white/50 text-sm md:text-lg">
-                        Everything you need to know about our services.
-                    </p>
                 </motion.div>
 
                 <div className="space-y-3">

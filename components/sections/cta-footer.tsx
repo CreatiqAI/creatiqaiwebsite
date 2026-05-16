@@ -44,15 +44,14 @@ export function CTAFooter() {
                     transition={{ duration: 0.8 }}
                     className="max-w-4xl mx-auto text-center"
                 >
-                    <h2 className="text-2xl md:text-5xl font-bold mb-4 text-white">
-                        Ready to Transform Your{" "}
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600">
-                            Business
+                    <h2 className="text-3xl md:text-6xl font-bold mb-4 md:mb-6 text-white tracking-tight leading-[1.05]">
+                        Let&apos;s build{" "}
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-violet-400 to-blue-400 bg-[length:200%_auto] animate-[gradient-x_4s_ease-in-out_infinite]">
+                            something real.
                         </span>
-                        ?
                     </h2>
-                    <p className="text-white/60 text-sm md:text-lg mb-6 md:mb-8 max-w-2xl mx-auto">
-                        Start your digital transformation today.
+                    <p className="text-white/60 text-base md:text-xl mb-6 md:mb-10 max-w-xl mx-auto">
+                        30-minute audit. No commitment. We&apos;ll show you exactly what&apos;s possible.
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

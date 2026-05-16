@@ -343,6 +343,12 @@ body {
   border-radius: 12px;
 }
 
+/* Gradient text shimmer animation */
+@keyframes gradient-x {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
 /* Phone mockup frame for 2ndu.ai showcase */
 .phone-frame {
     position: relative;

@@ -5,16 +5,16 @@ import { X, Check } from "lucide-react";
 
 const rows = [
     {
-        problem: "Manual data entry eats 20+ hours per week",
-        solution: "Automated workflows that run 24/7",
+        problem: "Manual data entry. 20+ hrs/week gone.",
+        solution: "Workflows that run themselves. 24/7.",
     },
     {
-        problem: "Customers wait hours for replies",
-        solution: "Instant AI replies on WhatsApp, around the clock",
+        problem: "Customers wait hours for a reply.",
+        solution: "AI replies in 0.3s. Even at 3am.",
     },
     {
-        problem: "No visibility into what's actually working",
-        solution: "Real-time dashboards show what matters most",
+        problem: "No idea what's actually working.",
+        solution: "Real-time dashboards. Decisions, faster.",
     },
 ];
 
@@ -44,17 +44,17 @@ export function ProblemSolutionSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.8 }}
-                    className="mb-10 md:mb-16 text-center"
+                    className="mb-12 md:mb-20 text-center"
                 >
-                    <h2 className="text-2xl md:text-5xl font-bold mb-4 text-white">
-                        Stop fighting your tools.{" "}
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-400">
-                            Start running your business.
+                    <span className="inline-block text-xs md:text-sm font-bold text-blue-300 uppercase tracking-[0.2em] mb-4">
+                        Why Creatiq
+                    </span>
+                    <h2 className="text-3xl md:text-6xl font-bold text-white tracking-tight leading-[1.05]">
+                        Stop fighting tools.{" "}
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-violet-400 to-blue-400 bg-[length:200%_auto] animate-[gradient-x_5s_ease-in-out_infinite]">
+                            Start growing.
                         </span>
                     </h2>
-                    <p className="text-white/55 text-sm md:text-lg max-w-2xl mx-auto">
-                        Three problems most growing businesses face — and how we fix them.
-                    </p>
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 relative">
