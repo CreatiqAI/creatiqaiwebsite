@@ -64,21 +64,44 @@ export function HeroSection({ country }: { country: string }) {
                     <LiveTicker />
                 </motion.div>
 
-                {/* Main Heading */}
-                <motion.h1
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4, duration: 0.8 }}
-                    className="text-[2.75rem] md:text-7xl lg:text-[6rem] font-bold tracking-tight leading-[1.05] mb-5 md:mb-8 text-slate-900"
-                >
-                    <span>Build it.</span>
-                    <br />
-                    <span>Automate it.</span>
-                    <br />
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-violet-600 to-blue-600 bg-[length:200%_auto] animate-[gradient-x_4s_ease-in-out_infinite]">
-                        Ship it.
-                    </span>
-                </motion.h1>
+                {/* Main Heading — staggered line reveal with per-line animated gradients */}
+                <h1 className="mb-5 md:mb-8 text-[2.75rem] md:text-7xl lg:text-[6rem] font-bold tracking-tight leading-[1.05] text-slate-900">
+                    {[
+                        { word: "Build", gradient: "from-blue-600 via-cyan-500 to-blue-600" },
+                        { word: "Automate", gradient: "from-violet-600 via-fuchsia-500 to-violet-600" },
+                        { word: "Ship", gradient: "from-blue-600 via-violet-600 to-blue-600" },
+                    ].map((line, i) => (
+                        <motion.div
+                            key={line.word}
+                            initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
+                            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                            transition={{ delay: 0.4 + i * 0.18, duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
+                            className="block"
+                        >
+                            <span className={`inline-block bg-clip-text text-transparent bg-gradient-to-r ${line.gradient} bg-[length:200%_auto] animate-[gradient-x_4s_ease-in-out_infinite] hover:scale-[1.03] transition-transform duration-300 cursor-default`} style={{ animationDelay: `${i * 0.4}s` }}>
+                                {line.word}
+                            </span>
+                            <span className="text-slate-900"> it</span>
+                            <motion.span
+                                initial={{ opacity: 0, scale: 0 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: 0.4 + i * 0.18 + 0.5, type: "spring", stiffness: 400 }}
+                                className={`inline-block bg-clip-text text-transparent bg-gradient-to-r ${line.gradient} bg-[length:200%_auto] animate-[gradient-x_4s_ease-in-out_infinite]`}
+                                style={{ animationDelay: `${i * 0.4}s` }}
+                            >
+                                .
+                            </motion.span>
+                            {i === 2 && (
+                                <motion.span
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ delay: 1.5 }}
+                                    className="inline-block w-[0.35em] h-[0.85em] ml-2 -mb-1 bg-blue-600 caret-blink rounded-sm align-middle"
+                                />
+                            )}
+                        </motion.div>
+                    ))}
+                </h1>
 
                 {/* Subhead */}
                 <motion.p
@@ -139,21 +162,39 @@ export function HeroSection({ country }: { country: string }) {
                     ))}
                 </motion.div>
 
-                {/* Integrations strip */}
+                {/* Integrations — endless marquee */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1.7 }}
-                    className="flex flex-col items-center gap-2"
+                    className="flex flex-col items-center gap-3 w-full"
                 >
-                    <div className="flex items-center gap-3 md:gap-5">
-                        {["SiWhatsapp", "SiStripe", "SiShopify", "SiSlack", "SiGooglesheets", "SiHubspot", "SiNotion"].map((name) => (
-                            <IntegrationIcon key={name} name={name} />
-                        ))}
-                    </div>
-                    <span className="text-[10px] md:text-xs text-slate-500 tracking-wide">
-                        Plugs into WhatsApp, Stripe, Shopify, Slack +30 more
+                    <span className="text-[10px] md:text-xs font-semibold text-slate-500 uppercase tracking-[0.2em]">
+                        Plugs into 30+ tools
                     </span>
+                    <div className="marquee-container w-full max-w-3xl">
+                        <div className="marquee-track gap-8 md:gap-14 py-2">
+                            {/* Duplicate the icon list twice for seamless loop */}
+                            {[0, 1].map((repeatIndex) => (
+                                <div key={repeatIndex} className="flex items-center gap-8 md:gap-14 pr-8 md:pr-14" aria-hidden={repeatIndex === 1}>
+                                    {[
+                                        { name: "SiWhatsapp", label: "WhatsApp" },
+                                        { name: "SiStripe", label: "Stripe" },
+                                        { name: "SiShopify", label: "Shopify" },
+                                        { name: "SiSlack", label: "Slack" },
+                                        { name: "SiGooglesheets", label: "Sheets" },
+                                        { name: "SiHubspot", label: "HubSpot" },
+                                        { name: "SiNotion", label: "Notion" },
+                                    ].map((item) => (
+                                        <div key={`${repeatIndex}-${item.name}`} className="flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors flex-shrink-0">
+                                            <IntegrationIcon name={item.name} />
+                                            <span className="text-xs md:text-sm font-medium whitespace-nowrap">{item.label}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </motion.div>
             </div>
 
