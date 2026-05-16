@@ -15,6 +15,7 @@ import { getGeoContent } from "@/lib/geo-content";
 import { AnimatedCounter } from "@/components/animated-counter";
 import { LiveTicker } from "@/components/live-ticker";
 import { MagneticButton } from "@/components/magnetic-button";
+import RotatingText from "@/components/RotatingText";
 
 const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
     SiWhatsapp,
@@ -64,44 +65,29 @@ export function HeroSection({ country }: { country: string }) {
                     <LiveTicker />
                 </motion.div>
 
-                {/* Main Heading — staggered line reveal with per-line animated gradients */}
-                <h1 className="mb-5 md:mb-8 text-[2.75rem] md:text-7xl lg:text-[6rem] font-bold tracking-tight leading-[1.05] text-slate-900">
-                    {[
-                        { word: "Build", gradient: "from-blue-600 via-cyan-500 to-blue-600" },
-                        { word: "Automate", gradient: "from-violet-600 via-fuchsia-500 to-violet-600" },
-                        { word: "Ship", gradient: "from-blue-600 via-violet-600 to-blue-600" },
-                    ].map((line, i) => (
-                        <motion.div
-                            key={line.word}
-                            initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
-                            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                            transition={{ delay: 0.4 + i * 0.18, duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
-                            className="block"
-                        >
-                            <span className={`inline-block bg-clip-text text-transparent bg-gradient-to-r ${line.gradient} bg-[length:200%_auto] animate-[gradient-x_4s_ease-in-out_infinite] hover:scale-[1.03] transition-transform duration-300 cursor-default`} style={{ animationDelay: `${i * 0.4}s` }}>
-                                {line.word}
-                            </span>
-                            <span className="text-slate-900"> it</span>
-                            <motion.span
-                                initial={{ opacity: 0, scale: 0 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 0.4 + i * 0.18 + 0.5, type: "spring", stiffness: 400 }}
-                                className={`inline-block bg-clip-text text-transparent bg-gradient-to-r ${line.gradient} bg-[length:200%_auto] animate-[gradient-x_4s_ease-in-out_infinite]`}
-                                style={{ animationDelay: `${i * 0.4}s` }}
-                            >
-                                .
-                            </motion.span>
-                            {i === 2 && (
-                                <motion.span
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{ delay: 1.5 }}
-                                    className="inline-block w-[0.35em] h-[0.85em] ml-2 -mb-1 bg-blue-600 caret-blink rounded-sm align-middle"
-                                />
-                            )}
-                        </motion.div>
-                    ))}
-                </h1>
+                {/* Main Heading — rotating verb, static 'it.' */}
+                <motion.h1
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.8 }}
+                    className="mb-5 md:mb-8 text-[2.75rem] md:text-7xl lg:text-[6rem] font-bold tracking-tight leading-[1.05] text-slate-900"
+                >
+                    <span className="inline-flex items-baseline gap-3 md:gap-5 justify-center flex-wrap">
+                        <RotatingText
+                            texts={["Build", "Automate", "Ship"]}
+                            mainClassName="px-3 md:px-4 py-1 md:py-2 bg-gradient-to-r from-blue-600 via-violet-600 to-blue-600 bg-[length:200%_auto] animate-[gradient-x_4s_ease-in-out_infinite] text-white rounded-xl md:rounded-2xl overflow-hidden shadow-[0_8px_32px_-8px_rgba(37,99,235,0.4)]"
+                            staggerFrom="last"
+                            initial={{ y: "100%" }}
+                            animate={{ y: 0 }}
+                            exit={{ y: "-120%" }}
+                            staggerDuration={0.025}
+                            splitLevelClassName="overflow-hidden pb-0.5 md:pb-1"
+                            transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                            rotationInterval={2200}
+                        />
+                        <span className="text-slate-900">it.</span>
+                    </span>
+                </motion.h1>
 
                 {/* Subhead */}
                 <motion.p
