@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import {
     SiWhatsapp,
     SiStripe,
@@ -13,6 +13,9 @@ import {
 } from "react-icons/si";
 import { getGeoContent } from "@/lib/geo-content";
 import { AnimatedCounter } from "@/components/animated-counter";
+import { LiveTicker } from "@/components/live-ticker";
+import { MagneticButton } from "@/components/magnetic-button";
+import { FloatingSparkles } from "@/components/floating-sparkles";
 
 const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
     SiWhatsapp,
@@ -40,30 +43,27 @@ export function HeroSection({ country }: { country: string }) {
 
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-24 md:py-32">
-            {/* Subtle base gradient + animated aurora blobs */}
+            {/* Base gradient + aurora blobs + floating sparkles */}
             <div className="absolute inset-0 -z-10 overflow-hidden" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(37,99,235,0.06) 0%, transparent 70%)" }}>
                 <div className="hero-aurora">
                     <div className="hero-aurora-blob w-[500px] h-[500px] -top-32 -left-20" style={{ background: "radial-gradient(circle, rgba(37,99,235,0.35), transparent 60%)", animation: "aurora-drift-1 18s ease-in-out infinite" }} />
                     <div className="hero-aurora-blob w-[600px] h-[600px] -top-20 -right-40" style={{ background: "radial-gradient(circle, rgba(124,58,237,0.3), transparent 60%)", animation: "aurora-drift-2 22s ease-in-out infinite" }} />
                     <div className="hero-aurora-blob w-[400px] h-[400px] bottom-0 left-1/3" style={{ background: "radial-gradient(circle, rgba(59,130,246,0.25), transparent 60%)", animation: "aurora-drift-3 20s ease-in-out infinite" }} />
                 </div>
+                <FloatingSparkles count={20} />
                 <div className="hero-dot-grid" />
                 <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
             </div>
 
             <div className="relative z-10 max-w-5xl mx-auto px-5 md:px-6 text-center">
-                {/* Status Badge */}
+                {/* Live activity ticker */}
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
-                    className="inline-flex items-center gap-2 px-4 py-2 md:px-5 md:py-2.5 rounded-full glass-btn mb-6 md:mb-10"
+                    className="mb-6 md:mb-10"
                 >
-                    <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
-                    </span>
-                    <span className="text-xs md:text-sm font-medium text-blue-300">{geo.trustBadge}</span>
+                    <LiveTicker />
                 </motion.div>
 
                 {/* Main Heading — shorter, punchier, animated gradient */}
@@ -100,23 +100,27 @@ export function HeroSection({ country }: { country: string }) {
                     transition={{ delay: 1.1 }}
                     className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 mb-10 md:mb-16"
                 >
-                    <div className="glow-border-btn glow-border-btn-primary" style={{ "--glow-color": "#3b82f6" } as React.CSSProperties}>
-                        <a
-                            href="https://2ndu.ai"
-                            className="glow-border-btn-inner group flex items-center gap-2 px-7 py-3.5 md:px-9 md:py-4 text-white font-bold text-base md:text-lg hover:scale-[1.02] transition-transform"
-                        >
-                            {geo.ctaText}
-                            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                        </a>
-                    </div>
-                    <div className="glow-border-btn" style={{ "--glow-color": "#7c3aed" } as React.CSSProperties}>
-                        <a
-                            href="#services"
-                            className="glow-border-btn-inner flex items-center px-7 py-3.5 md:px-9 md:py-4 text-white/90 font-medium text-base md:text-lg hover:scale-[1.02] transition-transform"
-                        >
-                            See What We Build
-                        </a>
-                    </div>
+                    <MagneticButton>
+                        <div className="glow-border-btn glow-border-btn-primary" style={{ "--glow-color": "#3b82f6" } as React.CSSProperties}>
+                            <a
+                                href="https://2ndu.ai"
+                                className="glow-border-btn-inner group flex items-center gap-2 px-7 py-3.5 md:px-9 md:py-4 text-white font-bold text-base md:text-lg"
+                            >
+                                {geo.ctaText}
+                                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                            </a>
+                        </div>
+                    </MagneticButton>
+                    <MagneticButton>
+                        <div className="glow-border-btn" style={{ "--glow-color": "#7c3aed" } as React.CSSProperties}>
+                            <a
+                                href="#services"
+                                className="glow-border-btn-inner flex items-center px-7 py-3.5 md:px-9 md:py-4 text-white/90 font-medium text-base md:text-lg"
+                            >
+                                See What We Build
+                            </a>
+                        </div>
+                    </MagneticButton>
                 </motion.div>
 
                 {/* Metric strip with animated counters */}

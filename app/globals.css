@@ -349,6 +349,20 @@ body {
     50% { background-position: 100% 50%; }
 }
 
+/* Drifting sparkle particles */
+@keyframes sparkle-drift {
+    0% { transform: translate(0, 0) scale(0.5); opacity: 0; }
+    20% { opacity: 1; transform: translate(8px, -12px) scale(1); }
+    50% { transform: translate(-6px, -28px) scale(0.8); opacity: 0.8; }
+    80% { opacity: 1; transform: translate(10px, -42px) scale(1); }
+    100% { transform: translate(0, -60px) scale(0.5); opacity: 0; }
+}
+
+.sparkle-drift {
+    animation: sparkle-drift linear infinite;
+    will-change: transform, opacity;
+}
+
 /* Phone mockup frame for 2ndu.ai showcase */
 .phone-frame {
     position: relative;

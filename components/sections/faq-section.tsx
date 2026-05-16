@@ -6,36 +6,36 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
     {
-        question: "What services does Creatiq AI provide?",
-        answer: "We offer three core services: custom website development, AI system integration and customization, and our flagship product 2ndu.ai — a no-code WhatsApp chatbot platform. Whether you need a stunning website, intelligent automation, or AI-powered customer communication, we've got you covered.",
+        question: "What do you actually build?",
+        answer: "Websites, AI automations, and 2ndu.ai — our no-code WhatsApp chatbot.",
     },
     {
-        question: "What is 2ndu.ai and how does it work?",
-        answer: "2ndu.ai is our chatbot platform that lets you connect your WhatsApp Business account to an AI chatbot in minutes. Sign up, connect your WhatsApp number, train the AI on your business data, and launch. The AI then handles customer conversations 24/7.",
+        question: "How fast can you ship?",
+        answer: "2ndu.ai in under 10 minutes. Websites in 2–4 weeks. AI builds in 1–8 weeks depending on scope.",
     },
     {
-        question: "Do I need coding skills to use your services?",
-        answer: "Not at all. 2ndu.ai is completely no-code — if you can send an email, you can set up a chatbot. For custom websites and AI integrations, our team handles all the technical work and walks you through the setup.",
+        question: "Do I need to know code?",
+        answer: "No. 2ndu.ai is no-code. For everything else, we handle it.",
     },
     {
-        question: "How long does a typical project take?",
-        answer: "2ndu.ai is live in under 10 minutes. Custom websites typically take 2–4 weeks depending on scope. AI system integrations usually run 1–3 weeks for standard implementations and 4–8 weeks for complex builds.",
+        question: "Can you connect to my tools?",
+        answer: "Yes — WhatsApp, Stripe, Shopify, Slack, HubSpot, Notion +30 more. Custom stack? We'll build it.",
     },
     {
-        question: "Can you work with my existing tools?",
-        answer: "Yes. We integrate with most popular tools — WhatsApp Business, Stripe, Shopify, Slack, Google Workspace, HubSpot, Notion, and 30+ others. If you have a custom stack, we'll build the integration as part of the project scope.",
+        question: "What's included in support?",
+        answer: "30, 90, or unlimited days depending on tier. Bug fixes + small updates always covered.",
     },
     {
-        question: "What's included in your support?",
-        answer: "Starter packages include 30 days of post-launch support; Business includes 90 days; Custom includes ongoing priority SLA support. Support covers bug fixes, small content updates, and general guidance. Major feature additions are quoted separately.",
+        question: "Do you do revisions?",
+        answer: "Two rounds included at design and pre-launch. More at standard hourly rate.",
     },
     {
-        question: "Do you offer revisions during a project?",
-        answer: "Yes. Every project includes two rounds of revisions at key milestones — design and pre-launch. Additional revisions are available at our standard hourly rate. We'd rather iterate early than ship something you're not happy with.",
+        question: "What if I need help after?",
+        answer: "Monthly retainer or per-incident. Most clients stay on retainer.",
     },
     {
-        question: "What happens if I need help after the support period ends?",
-        answer: "You can move onto a monthly retainer for continued maintenance, or pay per-incident for one-off requests. Many of our clients choose the retainer once their business depends on the system.",
+        question: "How does pricing work?",
+        answer: "Three tiers from RM 1,500. Free 30-min audit before you commit to anything.",
     },
 ];
 

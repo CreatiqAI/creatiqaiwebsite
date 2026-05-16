@@ -7,13 +7,12 @@ const tiers = [
     {
         name: "Starter",
         price: "From RM 1,500",
-        tagline: "For new businesses getting online",
+        tagline: "Get online, fast.",
         features: [
-            "Landing page or simple site",
-            "Basic SEO setup",
+            "Landing page",
+            "Basic SEO",
             "Mobile responsive",
-            "Contact form integration",
-            "30-day post-launch support",
+            "30-day support",
         ],
         cta: { label: "Get Started", href: "#contact" },
         highlighted: false,
@@ -21,13 +20,12 @@ const tiers = [
     {
         name: "Business",
         price: "From RM 5,000",
-        tagline: "Our most popular package",
+        tagline: "The full stack.",
         features: [
             "Full website (10+ pages)",
             "AI integration",
-            "WhatsApp bot setup (2ndu.ai)",
+            "WhatsApp bot (2ndu.ai)",
             "Analytics dashboard",
-            "Workflow automation",
             "90-day support",
         ],
         cta: { label: "Get Started", href: "#contact" },
@@ -37,14 +35,12 @@ const tiers = [
     {
         name: "Custom",
         price: "Let's talk",
-        tagline: "Dedicated team for complex builds",
+        tagline: "Built to scale.",
         features: [
             "Everything in Business",
             "Dedicated build team",
-            "Custom AI model training",
-            "White-glove onboarding",
+            "Custom AI training",
             "Priority SLA",
-            "Quarterly strategy reviews",
         ],
         cta: { label: "Contact Sales", href: "#contact" },
         highlighted: false,
@@ -161,7 +157,7 @@ export function PricingSection() {
                 </div>
 
                 <p className="mt-8 md:mt-10 text-center text-xs md:text-sm text-white/40">
-                    Prices shown are starting points. Final quote depends on scope. All packages include free consultation.
+                    All tiers include a free 30-min audit. No lock-ins, no hidden fees.
                 </p>
             </div>
         </section>

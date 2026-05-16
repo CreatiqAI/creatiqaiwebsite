@@ -1,31 +1,21 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 /**
- * Wraps a section with a scroll-driven entrance:
- *  - As the section enters the viewport from below, it slides up and fades in.
- *  - As it leaves the viewport at the top, it gently fades and scales down.
+ * Wraps a section with a one-shot entrance reveal.
  *
- * Driven by useScroll, so the animation tracks scroll position smoothly
- * (cooperates with Lenis) instead of triggering once on intersection.
+ * Uses framer-motion's whileInView (IntersectionObserver under the hood)
+ * which fires once per section. Cheap compared to scroll-driven transforms
+ * — no per-frame recalculations, no Lenis interference.
  */
 export function SectionReveal({ children }: { children: React.ReactNode }) {
-    const ref = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ["start end", "end start"],
-    });
-
-    const opacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0.4]);
-    const y = useTransform(scrollYProgress, [0, 0.2], [80, 0]);
-    const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.96, 1, 1, 0.98]);
-
     return (
         <motion.div
-            ref={ref}
-            style={{ opacity, y, scale, willChange: "transform, opacity" }}
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
         >
             {children}
         </motion.div>
