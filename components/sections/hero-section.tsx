@@ -38,7 +38,7 @@ export function HeroSection({ country }: { country: string }) {
     const geo = getGeoContent(country);
 
     return (
-        <section className="relative min-h-screen md:h-full flex items-center justify-center overflow-hidden py-24 md:py-0">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-24 md:py-32">
             {/* Subtle base gradient fallback */}
             <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(37,99,235,0.06) 0%, transparent 70%)" }}>
                 <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />

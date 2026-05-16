@@ -14,7 +14,7 @@ const features = [
 
 export function ProductShowcase() {
     return (
-        <section className="relative z-10 py-16 md:py-12 px-4 md:px-6 md:h-full md:flex items-center overflow-hidden bg-[#03030a]/85">
+        <section className="relative z-10 py-20 md:py-28 px-4 md:px-6 md:min-h-screen md:flex items-center overflow-hidden bg-[#03030a]/85">
             {/* Background: Grid pattern + floating orbs + accent glow */}
             <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(37,99,235,0.08) 0%, transparent 70%)" }}>
                 <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />

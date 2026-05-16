@@ -23,7 +23,7 @@ const footerLinks = {
 
 export function CTAFooter() {
     return (
-        <section id="contact" className="relative z-10 bg-[#030308]/85 md:h-full flex flex-col overflow-hidden">
+        <section id="contact" className="relative z-10 bg-[#030308]/85 flex flex-col overflow-hidden">
             {/* CTA Area */}
             <div className="relative flex-1 flex items-center justify-center px-4 md:px-6 py-16 md:py-0">
                 <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(37,99,235,0.1) 0%, transparent 60%), radial-gradient(ellipse 35% 35% at 50% 50%, rgba(124,58,237,0.08) 0%, transparent 60%)" }}>

@@ -9,7 +9,7 @@
 }
 
 html {
-  /* No scroll-behavior here — Lenis handles smoothing, CSS snap handles anchoring */
+  /* No scroll snap — sections flow naturally, Lenis smooths the scroll, framer-motion handles entrance reveals */
 }
 
 body {
@@ -17,26 +17,6 @@ body {
   background: rgb(var(--background-start-rgb));
   min-height: 100vh;
   overflow-x: hidden;
-}
-
-/* Full-page snap scroll — body is the scroll container so Lenis can hook it */
-.snap-container {
-  /* No fixed height / no overflow — let body scroll the document */
-}
-
-.snap-section {
-  min-height: auto;
-}
-
-@media (min-width: 768px) {
-  html {
-    scroll-snap-type: y proximity;
-  }
-  .snap-section {
-    scroll-snap-align: start;
-    height: 100vh;
-    overflow: hidden;
-  }
 }
 
 /* Orbiting border glow button */

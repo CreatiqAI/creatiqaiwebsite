@@ -55,7 +55,7 @@ export function PricingSection() {
     return (
         <section
             id="pricing"
-            className="relative z-10 py-16 md:py-12 px-4 md:px-6 md:h-full md:flex items-center overflow-hidden"
+            className="relative z-10 py-20 md:py-28 px-4 md:px-6 md:min-h-screen md:flex items-center overflow-hidden"
         >
             {/* Background */}
             <div

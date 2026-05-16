@@ -8,6 +8,7 @@ import { PricingSection } from "@/components/sections/pricing-section";
 import { FAQSection } from "@/components/sections/faq-section";
 import { CTAFooter } from "@/components/sections/cta-footer";
 import { LiquidEtherBackground } from "@/components/LiquidEtherBackground";
+import { SectionReveal } from "@/components/section-reveal";
 
 export default function Home() {
     const headersList = headers();
@@ -16,31 +17,31 @@ export default function Home() {
     return (
         <>
         <LiquidEtherBackground />
-        <main className="snap-container relative">
-            <div className="snap-section">
-                <HeroSection country={country} />
-            </div>
-            <div className="snap-section">
+        <main className="relative">
+            {/* Hero is not wrapped — it's already visible on load, no reveal needed */}
+            <HeroSection country={country} />
+
+            <SectionReveal>
                 <ServicesSection />
-            </div>
-            <div className="snap-section">
+            </SectionReveal>
+            <SectionReveal>
                 <ProblemSolutionSection />
-            </div>
-            <div className="snap-section">
+            </SectionReveal>
+            <SectionReveal>
                 <ProductShowcase />
-            </div>
-            <div className="snap-section">
+            </SectionReveal>
+            <SectionReveal>
                 <HowItWorksSection />
-            </div>
-            <div className="snap-section">
+            </SectionReveal>
+            <SectionReveal>
                 <PricingSection />
-            </div>
-            <div className="snap-section">
+            </SectionReveal>
+            <SectionReveal>
                 <FAQSection />
-            </div>
-            <div className="snap-section">
+            </SectionReveal>
+            <SectionReveal>
                 <CTAFooter />
-            </div>
+            </SectionReveal>
         </main>
         </>
     );

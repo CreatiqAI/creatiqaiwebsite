@@ -36,7 +36,7 @@ const steps = [
 
 export function HowItWorksSection() {
     return (
-        <section id="how-it-works" className="relative z-10 py-16 md:py-12 px-4 md:px-6 md:h-full md:flex items-center overflow-hidden">
+        <section id="how-it-works" className="relative z-10 py-20 md:py-28 px-4 md:px-6 md:min-h-screen md:flex items-center overflow-hidden">
             {/* Background: Diagonal gradient streaks + floating orbs */}
             <div className="absolute inset-0 -z-10" style={{ background: "linear-gradient(155deg, transparent 20%, rgba(124,58,237,0.08) 50%, transparent 80%), linear-gradient(205deg, transparent 20%, rgba(37,99,235,0.08) 50%, transparent 80%)" }}>
                 <div className="bg-orb bg-orb-violet w-[500px] h-[500px] -top-32 right-1/4" />
