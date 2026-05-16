@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 5, 5, 16;
-  --background-end-rgb: 10, 10, 26;
+  --foreground-rgb: 15, 23, 42;          /* slate-900 */
+  --background-start-rgb: 255, 255, 255;  /* white */
+  --background-end-rgb: 248, 250, 252;    /* slate-50 */
 }
 
 html {
@@ -92,57 +92,58 @@ body {
   to { --glow-angle: 360deg; }
 }
 
-/* Glassmorphism Utilities - Dark Theme */
+/* Glassmorphism Utilities - Light Theme */
 .glass {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
 }
 
 .glass-nav {
-  background: rgba(5, 5, 16, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 30px -4px rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: 0 4px 24px -8px rgba(15, 23, 42, 0.08);
 }
 
 .glass-strong {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
 }
 
 .glass-glow {
-  background: rgba(37, 99, 235, 0.06);
-  border: 1px solid rgba(37, 99, 235, 0.15);
-  box-shadow: 0 0 20px -8px rgba(37, 99, 235, 0.2);
+  background: rgba(37, 99, 235, 0.04);
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  box-shadow: 0 6px 24px -10px rgba(37, 99, 235, 0.2);
 }
 
-/* Glass Buttons — no backdrop-filter for perf */
+/* Glass Buttons — light theme */
 .glass-btn {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 24px -4px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transition: background 0.3s ease, border-color 0.3s ease;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  box-shadow: 0 4px 14px -4px rgba(15, 23, 42, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  color: rgb(15, 23, 42);
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 }
 
 .glass-btn:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 1);
+  border-color: rgba(37, 99, 235, 0.4);
 }
 
-/* Glass primary button — blue glow */
+/* Glass primary button — solid blue gradient */
 .glass-btn-primary {
-  background: rgba(37, 99, 235, 0.6);
-  border: 1px solid rgba(96, 165, 250, 0.4);
-  box-shadow: 0 4px 24px -4px rgba(37, 99, 235, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  transition: background 0.3s ease, border-color 0.3s ease;
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  border: 1px solid rgba(37, 99, 235, 0.6);
+  box-shadow: 0 8px 24px -8px rgba(37, 99, 235, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  color: white;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
 
 .glass-btn-primary:hover {
-  background: rgba(37, 99, 235, 0.8);
-  border-color: rgba(96, 165, 250, 0.6);
+  box-shadow: 0 12px 32px -8px rgba(37, 99, 235, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 /* CSS-only card glow border (replaces Canvas2D ElectricBorder) */
@@ -177,7 +178,7 @@ body {
 /* Section gradient divider */
 .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.2), rgba(124, 58, 237, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.25), rgba(124, 58, 237, 0.25), transparent);
 }
 
 /* Section background animated orbs — GPU composited (transform + opacity only) */
@@ -210,18 +211,21 @@ body {
 }
 
 .bg-orb-blue {
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, rgba(37, 99, 235, 0.05) 40%, transparent 70%);
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.12) 0%, rgba(37, 99, 235, 0.04) 40%, transparent 70%);
   animation: float-slow 20s ease-in-out infinite;
+  filter: blur(40px);
 }
 
 .bg-orb-violet {
-  background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, rgba(124, 58, 237, 0.04) 40%, transparent 70%);
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, rgba(124, 58, 237, 0.03) 40%, transparent 70%);
   animation: float-slow-reverse 22s ease-in-out infinite;
+  filter: blur(40px);
 }
 
 .bg-orb-pulse {
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 60%);
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 60%);
   animation: pulse-subtle 6s ease-in-out infinite;
+  filter: blur(40px);
 }
 
 /* Hero aurora effect — layered animated gradient blobs */
@@ -255,15 +259,16 @@ body {
   position: absolute;
   border-radius: 50%;
   pointer-events: none;
-  mix-blend-mode: screen;
+  filter: blur(60px);
+  /* Removed mix-blend-mode: screen — that only works on dark backgrounds */
 }
 
 /* Dot grid overlay */
 .hero-dot-grid {
   position: absolute;
   inset: 0;
-  opacity: 0.03;
-  background-image: radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px);
+  opacity: 0.05;
+  background-image: radial-gradient(circle, rgba(15,23,42,0.5) 1px, transparent 1px);
   background-size: 32px 32px;
   pointer-events: none;
 }
@@ -273,7 +278,7 @@ body {
   position: absolute;
   height: 1px;
   width: 40%;
-  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.3), rgba(124, 58, 237, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.4), rgba(124, 58, 237, 0.4), transparent);
   animation: shimmer-line 8s ease-in-out infinite;
   pointer-events: none;
 }
@@ -363,23 +368,23 @@ body {
     will-change: transform, opacity;
 }
 
-/* Phone mockup frame for 2ndu.ai showcase */
-.phone-frame {
+/* Phone mockup frame for 2ndu.ai showcase — light theme */
+.phone-frame-light {
     position: relative;
     border-radius: 2.5rem;
     padding: 0.75rem;
-    background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+    background: linear-gradient(145deg, #f1f5f9, #cbd5e1);
     box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.08),
-        0 30px 80px -20px rgba(0, 0, 0, 0.6),
-        0 0 60px -10px rgba(37, 99, 235, 0.25);
+        inset 0 0 0 1px rgba(15, 23, 42, 0.05),
+        0 30px 80px -20px rgba(15, 23, 42, 0.25),
+        0 0 60px -10px rgba(37, 99, 235, 0.2);
 }
 
-.phone-screen {
+.phone-screen-light {
     border-radius: 1.85rem;
-    background: linear-gradient(180deg, #050514 0%, #0a0a1f 100%);
+    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
     overflow: hidden;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.06);
 }
 
 @keyframes phone-float {
@@ -391,44 +396,44 @@ body {
     animation: phone-float 6s ease-in-out infinite;
 }
 
-/* Custom scrollbar - Dark */
+/* Custom scrollbar - Light */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #050510;
+  background: #f8fafc;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 3px;
+  background: rgba(15, 23, 42, 0.2);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(37, 99, 235, 0.5);
 }
 
 @layer base {
   :root {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 100%;
-    --card: 0 0% 5%;
-    --card-foreground: 0 0% 100%;
-    --popover: 0 0% 5%;
-    --popover-foreground: 0 0% 100%;
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
     --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 10%;
-    --muted-foreground: 0 0% 60%;
-    --accent: 0 0% 10%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
     --ring: 217 91% 60%;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;

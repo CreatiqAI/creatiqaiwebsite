@@ -51,16 +51,16 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
         >
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full p-4 md:p-5 rounded-2xl bg-white/5 hover:bg-white/[0.08] border border-white/10 transition-colors text-left"
+                className="w-full p-4 md:p-5 rounded-2xl bg-white hover:bg-slate-50 border border-slate-200 hover:border-blue-300 shadow-sm hover:shadow-md transition-all text-left"
             >
                 <div className="flex justify-between items-center gap-4">
-                    <span className="font-semibold text-sm md:text-base text-white/95">{question}</span>
+                    <span className="font-semibold text-sm md:text-base text-slate-900">{question}</span>
                     <motion.div
                         animate={{ rotate: isOpen ? 180 : 0 }}
                         transition={{ duration: 0.3 }}
                         className="flex-shrink-0"
                     >
-                        <ChevronDown size={18} className="text-blue-400" />
+                        <ChevronDown size={18} className="text-blue-600" />
                     </motion.div>
                 </div>
                 <AnimatePresence>
@@ -72,7 +72,7 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
                             transition={{ duration: 0.3 }}
                             className="overflow-hidden"
                         >
-                            <p className="mt-3 text-white/50 leading-relaxed text-sm">{answer}</p>
+                            <p className="mt-3 text-slate-600 leading-relaxed text-sm">{answer}</p>
                         </motion.div>
                     )}
                 </AnimatePresence>
@@ -83,22 +83,16 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
 
 export function FAQSection() {
     return (
-        <section id="faq" className="relative z-10 py-20 md:py-28 px-4 md:px-6 md:flex items-center md:min-h-screen overflow-hidden bg-[#03030a]/85">
-            {/* Background: Centered radial glow + floating orbs + rings */}
-            <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(circle at 50% 50%, rgba(124,58,237,0.08) 0%, transparent 60%)" }}>
-                {/* Concentric rings */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full border border-white/[0.04]" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-white/[0.03]" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-white/[0.02]" />
-                {/* Floating orbs */}
-                <div className="bg-orb bg-orb-violet w-[500px] h-[500px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-orb-pulse" style={{ background: "radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 60%)" }} />
-                <div className="bg-orb bg-orb-blue w-[350px] h-[350px] -top-16 -right-24" />
-                <div className="bg-orb bg-orb-violet w-[300px] h-[300px] -bottom-16 -left-20" />
-                {/* Shimmer line */}
-                <div className="shimmer-line top-2/3 left-0" style={{ animationDelay: "4s" }} />
-                {/* Edge lines */}
-                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/15 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/15 to-transparent" />
+        <section id="faq" className="relative z-10 py-20 md:py-28 px-4 md:px-6 md:flex items-center md:min-h-screen overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50">
+            {/* Background */}
+            <div className="absolute inset-0 -z-10 overflow-hidden">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full border border-slate-200" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-slate-200/70" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-slate-200/50" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-3xl opacity-20" style={{ background: "radial-gradient(circle, rgba(124,58,237,0.25), transparent 60%)" }} />
+                <div className="absolute -top-16 -right-24 w-[350px] h-[350px] rounded-full blur-3xl opacity-20" style={{ background: "radial-gradient(circle, rgba(37,99,235,0.2), transparent 70%)" }} />
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-300/60 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-300/60 to-transparent" />
             </div>
             <div className="max-w-3xl mx-auto w-full">
                 <motion.div
@@ -108,12 +102,12 @@ export function FAQSection() {
                     transition={{ duration: 0.8 }}
                     className="mb-10 md:mb-14 text-center"
                 >
-                    <span className="inline-block text-xs md:text-sm font-bold text-violet-300 uppercase tracking-[0.2em] mb-4">
+                    <span className="inline-block text-xs md:text-sm font-bold text-violet-600 uppercase tracking-[0.2em] mb-4">
                         FAQ
                     </span>
-                    <h2 className="text-3xl md:text-6xl font-bold text-white tracking-tight leading-[1.05]">
+                    <h2 className="text-3xl md:text-6xl font-bold text-slate-900 tracking-tight leading-[1.05]">
                         Questions?{" "}
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-violet-400 to-blue-400 bg-[length:200%_auto] animate-[gradient-x_5s_ease-in-out_infinite]">
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-violet-600 to-blue-600 bg-[length:200%_auto] animate-[gradient-x_5s_ease-in-out_infinite]">
                             Answers.
                         </span>
                     </h2>

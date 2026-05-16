@@ -23,18 +23,14 @@ const footerLinks = {
 
 export function CTAFooter() {
     return (
-        <section id="contact" className="relative z-10 bg-[#030308]/85 flex flex-col overflow-hidden">
+        <section id="contact" className="relative z-10 flex flex-col overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white">
             {/* CTA Area */}
-            <div className="relative flex-1 flex items-center justify-center px-4 md:px-6 py-16 md:py-0">
-                <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(37,99,235,0.1) 0%, transparent 60%), radial-gradient(ellipse 35% 35% at 50% 50%, rgba(124,58,237,0.08) 0%, transparent 60%)" }}>
-                    {/* Floating orbs */}
-                    <div className="bg-orb bg-orb-blue w-[500px] h-[500px] -top-32 -left-40" />
-                    <div className="bg-orb bg-orb-violet w-[450px] h-[450px] -bottom-24 -right-32" />
-                    <div className="bg-orb bg-orb-pulse w-[350px] h-[350px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-                    {/* Shimmer line */}
-                    <div className="shimmer-line top-1/3 left-0" style={{ animationDelay: "1s" }} />
-                    {/* Top edge line */}
-                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/15 to-transparent" />
+            <div className="relative flex-1 flex items-center justify-center px-4 md:px-6 py-20 md:py-28">
+                <div className="absolute inset-0 -z-10 overflow-hidden">
+                    <div className="absolute -top-32 -left-40 w-[500px] h-[500px] rounded-full blur-3xl opacity-30" style={{ background: "radial-gradient(circle, rgba(37,99,235,0.25), transparent 70%)" }} />
+                    <div className="absolute -bottom-24 -right-32 w-[450px] h-[450px] rounded-full blur-3xl opacity-30" style={{ background: "radial-gradient(circle, rgba(124,58,237,0.25), transparent 70%)" }} />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full blur-3xl opacity-20" style={{ background: "radial-gradient(circle, rgba(37,99,235,0.18), transparent 60%)" }} />
+                    <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-300/60 to-transparent" />
                 </div>
 
                 <motion.div
@@ -44,29 +40,27 @@ export function CTAFooter() {
                     transition={{ duration: 0.8 }}
                     className="max-w-4xl mx-auto text-center"
                 >
-                    <h2 className="text-3xl md:text-6xl font-bold mb-4 md:mb-6 text-white tracking-tight leading-[1.05]">
+                    <h2 className="text-3xl md:text-6xl font-bold mb-4 md:mb-6 text-slate-900 tracking-tight leading-[1.05]">
                         Let&apos;s build{" "}
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-violet-400 to-blue-400 bg-[length:200%_auto] animate-[gradient-x_4s_ease-in-out_infinite]">
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-violet-600 to-blue-600 bg-[length:200%_auto] animate-[gradient-x_4s_ease-in-out_infinite]">
                             something real.
                         </span>
                     </h2>
-                    <p className="text-white/60 text-base md:text-xl mb-6 md:mb-10 max-w-xl mx-auto">
+                    <p className="text-slate-600 text-base md:text-xl mb-6 md:mb-10 max-w-xl mx-auto">
                         30-minute audit. No commitment. We&apos;ll show you exactly what&apos;s possible.
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <div className="glow-border-btn glow-border-btn-primary" style={{ "--glow-color": "#3b82f6" } as React.CSSProperties}>
-                            <a
-                                href="https://2ndu.ai"
-                                className="glow-border-btn-inner group flex items-center gap-2 px-6 py-3 md:px-8 text-white font-bold text-base md:text-lg hover:scale-105 transition-transform"
-                            >
-                                Start Automating
-                                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                            </a>
-                        </div>
+                        <a
+                            href="https://2ndu.ai"
+                            className="glass-btn-primary group inline-flex items-center gap-2 px-6 py-3 md:px-8 md:py-4 rounded-full font-bold text-base md:text-lg hover:scale-105 transition-transform"
+                        >
+                            Start Automating
+                            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                        </a>
                         <a
                             href="#services"
-                            className="px-6 py-3 md:px-8 rounded-full glass-btn text-white font-medium text-base md:text-lg"
+                            className="glass-btn px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold text-base md:text-lg"
                         >
                             Explore Services
                         </a>
@@ -80,22 +74,20 @@ export function CTAFooter() {
             {/* Compact Footer */}
             <div className="max-w-7xl mx-auto px-4 md:px-6 py-6 md:py-8 w-full">
                 <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-6">
-                    {/* Brand */}
                     <div className="flex items-center gap-3">
                         <Logo size={28} />
-                        <span className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-400">
+                        <span className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600">
                             Creatiq AI
                         </span>
                     </div>
 
-                    {/* Links in a row */}
                     <div className="flex flex-wrap gap-x-8 md:gap-x-12 gap-y-4">
                         <div>
-                            <h4 className="text-white text-sm font-semibold mb-2">Services</h4>
+                            <h4 className="text-slate-900 text-sm font-semibold mb-2">Services</h4>
                             <ul className="space-y-1.5">
                                 {footerLinks.services.map((link) => (
                                     <li key={link.label}>
-                                        <a href={link.href} className="text-white/40 hover:text-white/80 text-xs transition-colors">
+                                        <a href={link.href} className="text-slate-500 hover:text-slate-900 text-xs transition-colors">
                                             {link.label}
                                         </a>
                                     </li>
@@ -103,11 +95,11 @@ export function CTAFooter() {
                             </ul>
                         </div>
                         <div>
-                            <h4 className="text-white text-sm font-semibold mb-2">Resources</h4>
+                            <h4 className="text-slate-900 text-sm font-semibold mb-2">Resources</h4>
                             <ul className="space-y-1.5">
                                 {footerLinks.resources.map((link) => (
                                     <li key={link.label}>
-                                        <Link href={link.href} className="text-white/40 hover:text-white/80 text-xs transition-colors">
+                                        <Link href={link.href} className="text-slate-500 hover:text-slate-900 text-xs transition-colors">
                                             {link.label}
                                         </Link>
                                     </li>
@@ -115,11 +107,11 @@ export function CTAFooter() {
                             </ul>
                         </div>
                         <div>
-                            <h4 className="text-white text-sm font-semibold mb-2">Company</h4>
+                            <h4 className="text-slate-900 text-sm font-semibold mb-2">Company</h4>
                             <ul className="space-y-1.5">
                                 {footerLinks.company.map((link) => (
                                     <li key={link.label}>
-                                        <Link href={link.href} className="text-white/40 hover:text-white/80 text-xs transition-colors">
+                                        <Link href={link.href} className="text-slate-500 hover:text-slate-900 text-xs transition-colors">
                                             {link.label}
                                         </Link>
                                     </li>
@@ -129,12 +121,11 @@ export function CTAFooter() {
                     </div>
                 </div>
 
-                {/* Bottom bar */}
-                <div className="pt-4 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-2">
-                    <p className="text-white/30 text-xs">
+                <div className="pt-4 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-2">
+                    <p className="text-slate-500 text-xs">
                         &copy; {new Date().getFullYear()} Creatiq AI. All rights reserved.
                     </p>
-                    <p className="text-white/30 text-xs">
+                    <p className="text-slate-500 text-xs">
                         Powered by AI. Built for businesses.
                     </p>
                 </div>

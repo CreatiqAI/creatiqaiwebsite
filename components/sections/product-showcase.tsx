@@ -35,7 +35,6 @@ function useChatLoop() {
 
     useEffect(() => {
         if (visibleCount >= conversation.length) {
-            // Hold the full conversation a moment, then reset
             const reset = setTimeout(() => setVisibleCount(0), 3500);
             return () => clearTimeout(reset);
         }
@@ -61,7 +60,7 @@ function useChatLoop() {
     return { messages: conversation.slice(0, visibleCount), isTyping };
 }
 
-function ChatBubble({ message, index }: { message: ChatMessage; index: number }) {
+function ChatBubble({ message }: { message: ChatMessage }) {
     const isAi = message.from === "ai";
     return (
         <motion.div
@@ -73,30 +72,30 @@ function ChatBubble({ message, index }: { message: ChatMessage; index: number })
             className={`flex gap-2 ${isAi ? "justify-end" : ""}`}
         >
             {!isAi && (
-                <div className="w-7 h-7 rounded-full bg-green-500/15 flex items-center justify-center flex-shrink-0">
-                    <span className="text-[10px] text-green-400">U</span>
+                <div className="w-7 h-7 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
+                    <span className="text-[10px] font-semibold text-emerald-700">U</span>
                 </div>
             )}
             <div
                 className={`max-w-[80%] px-3 py-2 ${
                     isAi
-                        ? "bg-blue-500/15 border border-blue-500/25 rounded-2xl rounded-tr-sm"
-                        : "bg-white/[0.08] rounded-2xl rounded-tl-sm"
+                        ? "bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl rounded-tr-sm shadow-sm"
+                        : "bg-white border border-slate-200 rounded-2xl rounded-tl-sm shadow-sm"
                 }`}
             >
-                <p className={`text-xs md:text-sm ${isAi ? "text-blue-100" : "text-white/80"}`}>
+                <p className={`text-xs md:text-sm ${isAi ? "text-white" : "text-slate-800"}`}>
                     {message.text}
                 </p>
                 {message.meta && (
-                    <div className="mt-1.5 flex items-center gap-1 text-[10px] text-blue-300/60">
+                    <div className="mt-1.5 flex items-center gap-1 text-[10px] text-blue-100/90">
                         <Zap size={9} />
                         <span>{message.meta}</span>
                     </div>
                 )}
             </div>
             {isAi && (
-                <div className="w-7 h-7 rounded-full bg-blue-500/25 flex items-center justify-center flex-shrink-0">
-                    <span className="text-[10px] text-blue-300">AI</span>
+                <div className="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                    <span className="text-[10px] font-semibold text-blue-700">AI</span>
                 </div>
             )}
         </motion.div>
@@ -112,15 +111,15 @@ function TypingIndicator() {
             transition={{ duration: 0.2 }}
             className="flex gap-2 justify-end"
         >
-            <div className="bg-blue-500/15 border border-blue-500/25 rounded-2xl rounded-tr-sm px-3 py-2">
+            <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl rounded-tr-sm px-3 py-2 shadow-sm">
                 <div className="flex gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-400/60 animate-pulse" />
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-400/60 animate-pulse" style={{ animationDelay: "0.15s" }} />
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-400/60 animate-pulse" style={{ animationDelay: "0.3s" }} />
+                    <span className="w-1.5 h-1.5 rounded-full bg-white/70 animate-pulse" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-white/70 animate-pulse" style={{ animationDelay: "0.15s" }} />
+                    <span className="w-1.5 h-1.5 rounded-full bg-white/70 animate-pulse" style={{ animationDelay: "0.3s" }} />
                 </div>
             </div>
-            <div className="w-7 h-7 rounded-full bg-blue-500/25 flex items-center justify-center flex-shrink-0">
-                <span className="text-[10px] text-blue-300">AI</span>
+            <div className="w-7 h-7 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                <span className="text-[10px] font-semibold text-blue-700">AI</span>
             </div>
         </motion.div>
     );
@@ -130,17 +129,16 @@ export function ProductShowcase() {
     const { messages, isTyping } = useChatLoop();
 
     return (
-        <section className="relative z-10 py-20 md:py-28 px-4 md:px-6 md:min-h-screen md:flex items-center overflow-hidden bg-[#03030a]/85">
+        <section className="relative z-10 py-20 md:py-28 px-4 md:px-6 md:min-h-screen md:flex items-center overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50">
             {/* Background */}
-            <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(37,99,235,0.08) 0%, transparent 70%)" }}>
-                <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
-                <div className="bg-orb bg-orb-blue w-[600px] h-[600px] top-1/4 -right-48" />
-                <div className="bg-orb bg-orb-violet w-[450px] h-[450px] bottom-0 -left-40" />
-                <div className="bg-orb bg-orb-pulse w-[300px] h-[300px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-                <div className="shimmer-line bottom-1/4 left-0" style={{ animationDelay: "3s" }} />
-                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/15 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/15 to-transparent" />
+            <div className="absolute inset-0 -z-10 overflow-hidden">
+                <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: "linear-gradient(rgba(15,23,42,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(15,23,42,0.4) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
+                <div className="absolute top-1/4 -right-32 w-[500px] h-[500px] rounded-full blur-3xl opacity-30" style={{ background: "radial-gradient(circle, rgba(37,99,235,0.18), transparent 70%)" }} />
+                <div className="absolute bottom-0 -left-32 w-[450px] h-[450px] rounded-full blur-3xl opacity-25" style={{ background: "radial-gradient(circle, rgba(124,58,237,0.18), transparent 70%)" }} />
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-300/60 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-300/60 to-transparent" />
             </div>
+
             <div className="max-w-7xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
                     {/* Left: Content */}
@@ -150,38 +148,37 @@ export function ProductShowcase() {
                         viewport={{ once: true, margin: "-50px" }}
                         transition={{ duration: 0.8 }}
                     >
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200 mb-6">
                             <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-400" />
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75" />
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500" />
                             </span>
-                            <span className="text-xs font-semibold text-blue-300 uppercase tracking-wider">
+                            <span className="text-xs font-bold text-blue-700 uppercase tracking-wider">
                                 Live now
                             </span>
                         </div>
 
-                        <h2 className="text-3xl md:text-6xl font-bold mb-4 md:mb-6 text-white leading-[1.05]">
+                        <h2 className="text-3xl md:text-6xl font-bold mb-4 md:mb-6 text-slate-900 leading-[1.05] tracking-tight">
                             Sell on{" "}
-                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-violet-400 to-blue-400 bg-[length:200%_auto] animate-[gradient-x_4s_ease-in-out_infinite]">
+                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-violet-600 to-blue-600 bg-[length:200%_auto] animate-[gradient-x_4s_ease-in-out_infinite]">
                                 WhatsApp.
                             </span>
                             <br />
                             On autopilot.
                         </h2>
 
-                        <p className="text-white/65 text-base md:text-xl leading-relaxed mb-6 md:mb-8 max-w-lg">
-                            <span className="text-white font-semibold">2ndu.ai</span> plugs into your WhatsApp Business and closes deals while you sleep.
+                        <p className="text-slate-600 text-base md:text-xl leading-relaxed mb-6 md:mb-8 max-w-lg">
+                            <span className="text-slate-900 font-semibold">2ndu.ai</span> plugs into your WhatsApp Business and closes deals while you sleep.
                         </p>
 
-                        {/* Feature pills */}
                         <div className="flex flex-wrap gap-2 md:gap-2.5 mb-8 md:mb-10">
                             {features.map((feature) => (
                                 <div
                                     key={feature.label}
-                                    className="group inline-flex items-center gap-2 px-3 py-2 rounded-full bg-white/[0.04] border border-white/10 hover:bg-white/[0.08] hover:border-blue-400/30 transition-all cursor-default"
+                                    className="group inline-flex items-center gap-2 px-3 py-2 rounded-full bg-white border border-slate-200 hover:border-blue-400 hover:shadow-sm transition-all cursor-default"
                                 >
-                                    <feature.icon size={14} className="text-blue-400 group-hover:scale-110 transition-transform" />
-                                    <span className="text-xs md:text-sm text-white/75">{feature.label}</span>
+                                    <feature.icon size={14} className="text-blue-600 group-hover:scale-110 transition-transform" />
+                                    <span className="text-xs md:text-sm text-slate-700 font-medium">{feature.label}</span>
                                 </div>
                             ))}
                         </div>
@@ -195,7 +192,7 @@ export function ProductShowcase() {
                         </a>
                     </motion.div>
 
-                    {/* Right: Phone mockup with live chat loop */}
+                    {/* Right: Phone mockup */}
                     <motion.div
                         initial={{ opacity: 0, x: 40 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -209,41 +206,39 @@ export function ProductShowcase() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.6 }}
-                            className="absolute top-4 right-2 md:top-2 md:right-2 lg:-top-4 lg:-right-4 z-10 px-3 py-2 md:px-4 md:py-2.5 rounded-2xl bg-white/[0.08] border border-white/10 backdrop-blur-md shadow-lg"
+                            className="absolute top-4 right-2 md:top-2 md:right-2 lg:-top-4 lg:-right-4 z-10 px-3 py-2 md:px-4 md:py-2.5 rounded-2xl bg-white border border-slate-200 shadow-lg"
                         >
                             <div className="flex items-center gap-2">
                                 <span className="relative flex h-2 w-2">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
                                 </span>
                                 <div className="leading-tight">
-                                    <div className="text-xs md:text-sm font-bold tabular-nums bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-400">
+                                    <div className="text-xs md:text-sm font-bold tabular-nums bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600">
                                         <AnimatedCounter value={10247} />
                                     </div>
-                                    <div className="text-[9px] md:text-[10px] text-white/45 uppercase tracking-wider">
+                                    <div className="text-[9px] md:text-[10px] text-slate-500 uppercase tracking-wider">
                                         msgs this week
                                     </div>
                                 </div>
                             </div>
                         </motion.div>
 
-                        {/* Phone frame */}
-                        <div className="phone-frame phone-floating w-full max-w-[320px] md:max-w-[360px]">
-                            <div className="phone-screen p-4 md:p-5">
-                                {/* Status bar */}
+                        {/* Phone frame — light */}
+                        <div className="phone-frame-light phone-floating w-full max-w-[320px] md:max-w-[360px]">
+                            <div className="phone-screen-light p-4 md:p-5">
                                 <div className="flex items-center justify-between mb-3 px-1">
-                                    <span className="text-[10px] text-white/50">2ndu.ai · WhatsApp</span>
-                                    <span className="text-[10px] text-emerald-400 flex items-center gap-1">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                                    <span className="text-[10px] text-slate-500 font-medium">2ndu.ai · WhatsApp</span>
+                                    <span className="text-[10px] text-emerald-600 flex items-center gap-1">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                                         Online
                                     </span>
                                 </div>
 
-                                {/* Animated chat loop */}
                                 <div className="space-y-3 min-h-[280px] md:min-h-[320px]">
                                     <AnimatePresence mode="popLayout">
                                         {messages.map((m, i) => (
-                                            <ChatBubble key={`${i}-${m.text}`} message={m} index={i} />
+                                            <ChatBubble key={`${i}-${m.text}`} message={m} />
                                         ))}
                                         {isTyping && <TypingIndicator key="typing" />}
                                     </AnimatePresence>

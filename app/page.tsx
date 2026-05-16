@@ -7,7 +7,6 @@ import { HowItWorksSection } from "@/components/sections/how-it-works-section";
 import { PricingSection } from "@/components/sections/pricing-section";
 import { FAQSection } from "@/components/sections/faq-section";
 import { CTAFooter } from "@/components/sections/cta-footer";
-import { LiquidEtherBackground } from "@/components/LiquidEtherBackground";
 import { SectionReveal } from "@/components/section-reveal";
 
 export default function Home() {
@@ -16,7 +15,6 @@ export default function Home() {
 
     return (
         <>
-        <LiquidEtherBackground />
         <main className="relative">
             {/* Hero is not wrapped — it's already visible on load, no reveal needed */}
             <HeroSection country={country} />

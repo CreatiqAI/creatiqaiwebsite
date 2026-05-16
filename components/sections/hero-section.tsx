@@ -15,7 +15,6 @@ import { getGeoContent } from "@/lib/geo-content";
 import { AnimatedCounter } from "@/components/animated-counter";
 import { LiveTicker } from "@/components/live-ticker";
 import { MagneticButton } from "@/components/magnetic-button";
-import { FloatingSparkles } from "@/components/floating-sparkles";
 
 const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
     SiWhatsapp,
@@ -33,7 +32,7 @@ function IntegrationIcon({ name }: { name: string }) {
     return (
         <Icon
             size={20}
-            className="text-white/55 hover:text-white transition-colors"
+            className="text-slate-400 hover:text-slate-700 transition-colors"
         />
     );
 }
@@ -42,17 +41,16 @@ export function HeroSection({ country }: { country: string }) {
     const geo = getGeoContent(country);
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-24 md:py-32">
-            {/* Base gradient + aurora blobs + floating sparkles */}
-            <div className="absolute inset-0 -z-10 overflow-hidden" style={{ background: "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(37,99,235,0.06) 0%, transparent 70%)" }}>
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-24 md:py-32 bg-gradient-to-b from-white via-slate-50 to-white">
+            {/* Soft aurora blobs on white */}
+            <div className="absolute inset-0 -z-10 overflow-hidden">
                 <div className="hero-aurora">
-                    <div className="hero-aurora-blob w-[500px] h-[500px] -top-32 -left-20" style={{ background: "radial-gradient(circle, rgba(37,99,235,0.35), transparent 60%)", animation: "aurora-drift-1 18s ease-in-out infinite" }} />
-                    <div className="hero-aurora-blob w-[600px] h-[600px] -top-20 -right-40" style={{ background: "radial-gradient(circle, rgba(124,58,237,0.3), transparent 60%)", animation: "aurora-drift-2 22s ease-in-out infinite" }} />
-                    <div className="hero-aurora-blob w-[400px] h-[400px] bottom-0 left-1/3" style={{ background: "radial-gradient(circle, rgba(59,130,246,0.25), transparent 60%)", animation: "aurora-drift-3 20s ease-in-out infinite" }} />
+                    <div className="hero-aurora-blob w-[600px] h-[600px] -top-40 -left-32 opacity-50" style={{ background: "radial-gradient(circle, rgba(59,130,246,0.35), transparent 60%)", animation: "aurora-drift-1 18s ease-in-out infinite" }} />
+                    <div className="hero-aurora-blob w-[700px] h-[700px] -top-32 -right-40 opacity-50" style={{ background: "radial-gradient(circle, rgba(168,85,247,0.28), transparent 60%)", animation: "aurora-drift-2 22s ease-in-out infinite" }} />
+                    <div className="hero-aurora-blob w-[500px] h-[500px] bottom-0 left-1/3 opacity-50" style={{ background: "radial-gradient(circle, rgba(99,102,241,0.25), transparent 60%)", animation: "aurora-drift-3 20s ease-in-out infinite" }} />
                 </div>
-                <FloatingSparkles count={20} />
                 <div className="hero-dot-grid" />
-                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-300/60 to-transparent" />
             </div>
 
             <div className="relative z-10 max-w-5xl mx-auto px-5 md:px-6 text-center">
@@ -66,34 +64,34 @@ export function HeroSection({ country }: { country: string }) {
                     <LiveTicker />
                 </motion.div>
 
-                {/* Main Heading — shorter, punchier, animated gradient */}
+                {/* Main Heading */}
                 <motion.h1
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4, duration: 0.8 }}
-                    className="text-[2.75rem] md:text-7xl lg:text-[6rem] font-bold tracking-tight leading-[1.05] mb-5 md:mb-8"
+                    className="text-[2.75rem] md:text-7xl lg:text-[6rem] font-bold tracking-tight leading-[1.05] mb-5 md:mb-8 text-slate-900"
                 >
-                    <span className="text-white">Build it.</span>
+                    <span>Build it.</span>
                     <br />
-                    <span className="text-white">Automate it.</span>
+                    <span>Automate it.</span>
                     <br />
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-violet-400 to-blue-400 bg-[length:200%_auto] animate-[gradient-x_4s_ease-in-out_infinite]">
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-violet-600 to-blue-600 bg-[length:200%_auto] animate-[gradient-x_4s_ease-in-out_infinite]">
                         Ship it.
                     </span>
                 </motion.h1>
 
-                {/* One-line subhead */}
+                {/* Subhead */}
                 <motion.p
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.8, duration: 0.8 }}
-                    className="text-base md:text-xl text-white/55 mb-8 md:mb-12 max-w-2xl mx-auto"
+                    className="text-base md:text-xl text-slate-600 mb-8 md:mb-12 max-w-2xl mx-auto"
                 >
                     Websites, AI systems, and WhatsApp chatbots that{" "}
-                    <span className="text-white font-medium">actually move the needle.</span>
+                    <span className="text-slate-900 font-semibold">actually move the needle.</span>
                 </motion.p>
 
-                {/* CTA Buttons */}
+                {/* CTAs */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -101,29 +99,25 @@ export function HeroSection({ country }: { country: string }) {
                     className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 mb-10 md:mb-16"
                 >
                     <MagneticButton>
-                        <div className="glow-border-btn glow-border-btn-primary" style={{ "--glow-color": "#3b82f6" } as React.CSSProperties}>
-                            <a
-                                href="https://2ndu.ai"
-                                className="glow-border-btn-inner group flex items-center gap-2 px-7 py-3.5 md:px-9 md:py-4 text-white font-bold text-base md:text-lg"
-                            >
-                                {geo.ctaText}
-                                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                            </a>
-                        </div>
+                        <a
+                            href="https://2ndu.ai"
+                            className="glass-btn-primary group flex items-center gap-2 px-7 py-3.5 md:px-9 md:py-4 rounded-full font-bold text-base md:text-lg hover:scale-[1.02] transition-transform"
+                        >
+                            {geo.ctaText}
+                            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                        </a>
                     </MagneticButton>
                     <MagneticButton>
-                        <div className="glow-border-btn" style={{ "--glow-color": "#7c3aed" } as React.CSSProperties}>
-                            <a
-                                href="#services"
-                                className="glow-border-btn-inner flex items-center px-7 py-3.5 md:px-9 md:py-4 text-white/90 font-medium text-base md:text-lg"
-                            >
-                                See What We Build
-                            </a>
-                        </div>
+                        <a
+                            href="#services"
+                            className="glass-btn flex items-center px-7 py-3.5 md:px-9 md:py-4 rounded-full font-semibold text-base md:text-lg hover:scale-[1.02] transition-transform"
+                        >
+                            See What We Build
+                        </a>
                     </MagneticButton>
                 </motion.div>
 
-                {/* Metric strip with animated counters */}
+                {/* Metric strip */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -136,11 +130,11 @@ export function HeroSection({ country }: { country: string }) {
                         { value: 24, suffix: "/7", label: "support" },
                     ].map((m, i) => (
                         <span key={m.label} className="flex items-center gap-2.5 text-sm md:text-base">
-                            {i > 0 && <span className="hidden md:inline w-1 h-1 rounded-full bg-white/20" />}
-                            <span className="font-bold tabular-nums text-2xl md:text-3xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-400">
+                            {i > 0 && <span className="hidden md:inline w-1 h-1 rounded-full bg-slate-300" />}
+                            <span className="font-bold tabular-nums text-2xl md:text-3xl bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-violet-600">
                                 <AnimatedCounter value={m.value} suffix={m.suffix} />
                             </span>
-                            <span className="text-white/45 text-xs md:text-sm uppercase tracking-wider">{m.label}</span>
+                            <span className="text-slate-500 text-xs md:text-sm uppercase tracking-wider">{m.label}</span>
                         </span>
                     ))}
                 </motion.div>
@@ -152,18 +146,18 @@ export function HeroSection({ country }: { country: string }) {
                     transition={{ delay: 1.7 }}
                     className="flex flex-col items-center gap-2"
                 >
-                    <div className="flex items-center gap-3 md:gap-5 opacity-70">
+                    <div className="flex items-center gap-3 md:gap-5">
                         {["SiWhatsapp", "SiStripe", "SiShopify", "SiSlack", "SiGooglesheets", "SiHubspot", "SiNotion"].map((name) => (
                             <IntegrationIcon key={name} name={name} />
                         ))}
                     </div>
-                    <span className="text-[10px] md:text-xs text-white/40 tracking-wide">
+                    <span className="text-[10px] md:text-xs text-slate-500 tracking-wide">
                         Plugs into WhatsApp, Stripe, Shopify, Slack +30 more
                     </span>
                 </motion.div>
             </div>
 
-            {/* Scroll indicator — desktop only */}
+            {/* Scroll indicator */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -173,9 +167,9 @@ export function HeroSection({ country }: { country: string }) {
                 <motion.div
                     animate={{ y: [0, 8, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
-                    className="w-5 h-8 rounded-full border-2 border-white/20 flex items-start justify-center p-1"
+                    className="w-5 h-8 rounded-full border-2 border-slate-300 flex items-start justify-center p-1"
                 >
-                    <div className="w-1 h-2 rounded-full bg-blue-400" />
+                    <div className="w-1 h-2 rounded-full bg-blue-600" />
                 </motion.div>
             </motion.div>
         </section>
