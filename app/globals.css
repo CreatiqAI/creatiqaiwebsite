@@ -9,7 +9,7 @@
 }
 
 html {
-  /* No scroll-behavior here — let snap handle transitions */
+  /* No scroll-behavior here — Lenis handles smoothing, CSS snap handles anchoring */
 }
 
 body {
@@ -19,10 +19,9 @@ body {
   overflow-x: hidden;
 }
 
-/* Full-page snap scroll container — desktop only */
+/* Full-page snap scroll — body is the scroll container so Lenis can hook it */
 .snap-container {
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  /* No fixed height / no overflow — let body scroll the document */
 }
 
 .snap-section {
@@ -30,8 +29,7 @@ body {
 }
 
 @media (min-width: 768px) {
-  .snap-container {
-    height: 100vh;
+  html {
     scroll-snap-type: y proximity;
   }
   .snap-section {
