@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
 import { Monitor, Cpu, MessageSquare, ArrowRight, Sparkles } from "lucide-react";
 import { useRef, MouseEvent } from "react";
 import { AnimatedCounter } from "@/components/animated-counter";

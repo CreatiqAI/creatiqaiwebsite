@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "motion/react";
 import { Search, PenTool, Rocket, TrendingUp } from "lucide-react";
 import { useRef } from "react";
 

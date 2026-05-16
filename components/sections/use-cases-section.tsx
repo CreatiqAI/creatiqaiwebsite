@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { ShoppingCart, Building2, Stethoscope, GraduationCap, UtensilsCrossed, Briefcase } from "lucide-react";
 import dynamic from "next/dynamic";
 

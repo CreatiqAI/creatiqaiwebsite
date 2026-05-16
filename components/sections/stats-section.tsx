@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { AnimatedCounter } from "@/components/animated-counter";
 import StarBorder from "@/components/StarBorder";
 import "@/components/StarBorder.css";
